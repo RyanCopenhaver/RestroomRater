@@ -1,0 +1,34 @@
+<h1>Submit a Rating</h1>
+<h3>{{ diagnostic }}</h3>
+
+<form #ratingForm="ngForm" (ngSubmit)="onSubmit()">
+
+  <div class="form-group">
+    <label for="location">Location</label>
+    <input id="location" class="form-control" name="location" required
+    [(ngModel)]="rating.location">
+  </div>
+
+  <div class="form-group">
+    <label for="changing">Changing Table</label>
+    <input type="checkbox" id="changing" class="form-control" name="changing"
+           [(ngModel)]="rating.changing">
+  </div>
+
+  <div class="form-group">
+    <label for="cleanliness">Cleanliness</label>
+    <input type="number" class="form-control" id="cleanliness"
+           name="cleanliness" min="1" max="5" required
+           [(ngModel)]="rating.cleanliness">
+  </div>
+
+  <div class="form-group">
+    <label for="overall">Overall Rating</label>
+    <input type="number" class="form-control" id="overall"
+           name="overall" min="1" max="5" required
+           [(ngModel)]="rating.overall">
+  </div>
+
+  <input type="submit" [disabled]="!ratingForm.form.valid">
+
+</form>

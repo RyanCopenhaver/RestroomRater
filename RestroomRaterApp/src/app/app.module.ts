@@ -4,15 +4,19 @@ import {AngularFireModule} from 'angularfire2';
 import { AppComponent } from './app.component';
 import {environment} from './../environments/environment';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
+import { RatingFormComponent } from './rating-form/rating-form.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RatingFormComponent
   ],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
