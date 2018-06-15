@@ -6,6 +6,7 @@ import {environment} from './../environments/environment';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
 import { RatingFormComponent } from './rating-form/rating-form.component';
 import { FormsModule } from '@angular/forms';
+import { RatingService} from './rating.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { FormsModule } from '@angular/forms';
     AngularFireDatabaseModule,
     FormsModule
   ],
-  providers: [],
+  providers: [RatingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

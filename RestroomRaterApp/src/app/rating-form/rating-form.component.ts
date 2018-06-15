@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
 import {Rating} from '../rating';
+import {RatingService} from '../rating.service';
 
 @Component({
   selector: 'app-rating-form',
@@ -8,20 +8,15 @@ import {Rating} from '../rating';
   styleUrls: ['./rating-form.component.css']
 })
 export class RatingFormComponent implements OnInit {
+  // rating = new Rating(1, 'Starbucks', false, 5, 4);
 
-  rating = new Rating(1, 'Starbucks', false, 5, 4);
-
-  constructor() { }
+  constructor(public ratingService: RatingService) { }
 
   ngOnInit() { }
 
-  onSubmit() {
-    console.log(this.rating);
-  }
-
-  // TODO: Remove this when done with testing
-  get diagnostic() {
-    return JSON.stringify(this.rating);
+  onSubmit(rating) {
+    this.ratingService.add(rating);
+    console.log(rating);
   }
 
 }

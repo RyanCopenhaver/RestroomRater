@@ -1,34 +1,38 @@
-<h1>Submit a Rating</h1>
-<h3>{{ diagnostic }}</h3>
+<h2>Submit a Rating</h2>
+<!--<h3>{{ showRating }}</h3>-->
 
-<form #ratingForm="ngForm" (ngSubmit)="onSubmit()">
+<form #ratingForm="ngForm" (ngSubmit)="onSubmit(ratingForm.value)">
 
   <div class="form-group">
     <label for="location">Location</label>
-    <input id="location" class="form-control" name="location" required
-    [(ngModel)]="rating.location">
+    <input id="location" class="form-control" name="location" required ngModel>
   </div>
 
   <div class="form-group">
     <label for="changing">Changing Table</label>
-    <input type="checkbox" id="changing" class="form-control" name="changing"
-           [(ngModel)]="rating.changing">
+    <input type="checkbox" id="changing" class="form-control" name="changing" ngModel>
   </div>
 
   <div class="form-group">
     <label for="cleanliness">Cleanliness</label>
     <input type="number" class="form-control" id="cleanliness"
-           name="cleanliness" min="1" max="5" required
-           [(ngModel)]="rating.cleanliness">
+           name="cleanliness" min="1" max="5" required ngModel>
   </div>
 
   <div class="form-group">
     <label for="overall">Overall Rating</label>
     <input type="number" class="form-control" id="overall"
-           name="overall" min="1" max="5" required
-           [(ngModel)]="rating.overall">
+           name="overall" min="1" max="5" required ngModel>
   </div>
 
   <input type="submit" [disabled]="!ratingForm.form.valid">
 
 </form>
+
+<h2>All Ratings</h2>
+<div *ngIf="ratingService.ratings.length > 0">
+  <div *ngFor="let rating of ratingService.ratings">
+    <h4>Location: {{ rating.location }}</h4>
+    <h4>Rating: {{ rating.overall }}</h4>
+  </div>
+</div>
