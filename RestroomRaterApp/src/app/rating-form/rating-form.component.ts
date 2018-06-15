@@ -9,14 +9,14 @@ import {Rating} from '../rating';
 })
 export class RatingFormComponent implements OnInit {
 
-  rating = new Rating(1, 'Starbucks', true, 5, 4);
+  rating = new Rating(1, 'Starbucks', false, 5, 4);
 
   constructor() { }
 
   ngOnInit() { }
 
   onSubmit() {
-    console.log();
+    console.log(this.rating);
   }
 
   // TODO: Remove this when done with testing
