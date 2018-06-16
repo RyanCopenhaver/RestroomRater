@@ -4,16 +4,12 @@ import {Rating} from './rating';
 @Injectable({
   providedIn: 'root'
 })
+
 export class RatingService {
   // array of ratings
   ratings: Rating[] = [];
 
-  // get() function
-  get() {
-    return this.ratings;
-  }
-
-  // add() function
+  // add() function adds a rating to the array
   add(rating) {
     this.ratings.push(rating);
   }

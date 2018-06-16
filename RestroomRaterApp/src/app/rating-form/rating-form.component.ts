@@ -1,22 +1,44 @@
 import { Component, OnInit } from '@angular/core';
-import {Rating} from '../rating';
 import {RatingService} from '../rating.service';
+import {Rating} from '../rating';
 
 @Component({
   selector: 'app-rating-form',
   templateUrl: './rating-form.component.html',
   styleUrls: ['./rating-form.component.css']
 })
-export class RatingFormComponent implements OnInit {
-  // rating = new Rating(1, 'Starbucks', false, 5, 4);
 
+export class RatingFormComponent implements OnInit {
+  // inject RatingService
   constructor(public ratingService: RatingService) { }
 
   ngOnInit() { }
 
-  onSubmit(rating) {
+  /*
+  onSubmit() adds value of form
+  as a Rating object to the ratings array
+  in RatingService
+  */
+  onSubmit(form) {
+
+    let timestamp = Date.now();
+
+    console.log(form.value.location);
+    console.log(form.value.overall);
+    console.log(form.value.cleanliness);
+    console.log(timestamp);
+
+    let rating = new Rating(
+      form.value.location,
+      form.value.changing,
+      form.value.cleanliness,
+      form.value.overall,
+      timestamp
+    )
+    // add to array
     this.ratingService.add(rating);
-    console.log(rating);
+    // reset form
+    form.reset();
   }
 
 }
