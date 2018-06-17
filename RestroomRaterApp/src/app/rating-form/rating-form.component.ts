@@ -20,14 +20,14 @@ export class RatingFormComponent implements OnInit {
   in RatingService
   */
   onSubmit(form) {
-
+    // get timestamp for Rating object
     let timestamp = Date.now();
-
+    // testing the data from the form
     console.log(form.value.location);
     console.log(form.value.overall);
     console.log(form.value.cleanliness);
     console.log(timestamp);
-
+    // create new Rating with form values
     let rating = new Rating(
       form.value.location,
       form.value.changing,
