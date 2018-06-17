@@ -25,3 +25,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Google Geolocation Services
+
+In order to use the Geolocation Services a constant must be defined in /src/app/models/keys.ts to hold you Google Maps API Keys

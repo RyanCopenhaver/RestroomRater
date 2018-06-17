@@ -3,3 +3,6 @@
 
 # IDEs and editors
 /.idea
+
+# API Keys
+/RestroomRaterApp/src/app/models/keys.ts
