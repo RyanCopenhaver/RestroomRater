@@ -13,6 +13,8 @@ export class LocationComponent implements OnInit {
   constructor(public locationService: LocationService) { }
 
   // try to load location
-  ngOnInit() { }
+  ngOnInit() {
+    locationService.updateLocation();
+  }
 
 }
