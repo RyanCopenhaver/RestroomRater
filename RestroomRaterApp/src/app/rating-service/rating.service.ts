@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import {Rating} from './rating';
+import {Rating} from '../models/rating';
+import {RatingRepository} from "./rating.repository";
 
 @Injectable({
   providedIn: 'root'
@@ -14,5 +15,9 @@ export class RatingService {
     this.ratings.push(rating);
   }
 
-  constructor() { }
+  save(rating) {
+      this.repository.saveRating(rating);
+  }
+
+  constructor(private repository: RatingRepository) { }
 }

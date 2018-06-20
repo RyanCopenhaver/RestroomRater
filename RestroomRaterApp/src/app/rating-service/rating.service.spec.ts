@@ -1,6 +1,6 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { RatingService } from './rating.service';
+import { RatingService } from '../rating-service/rating.service';
 
 describe('RatingService', () => {
   beforeEach(() => {

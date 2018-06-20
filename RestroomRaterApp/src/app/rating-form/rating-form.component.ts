@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {RatingService} from '../rating.service';
-import {Rating} from '../rating';
+import {RatingService} from '../rating-service/rating.service';
+import {Rating} from '../models/rating';
 
 @Component({
   selector: 'app-rating-form',
@@ -37,6 +37,7 @@ export class RatingFormComponent implements OnInit {
     )
     // add to array
     this.ratingService.add(rating);
+    this.ratingService.save(rating);
     // reset form
     form.reset();
   }
