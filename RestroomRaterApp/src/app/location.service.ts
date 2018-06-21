@@ -1,35 +1,37 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import {Location} from './models/location';
-import {Keys} from './models/keys';
+import {Keys} from './models/keys'
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class LocationService {
+  constructor(private http: HttpClient) { }
+
   private gmapsPostUrl = "https://www.googleapis.com/geolocation/v1/geolocate?key=" + Keys.GMAPS_API_KEY;
 
   // TODO: add default values?
-  location: Location = null;
+  updateLocation(): Location {
+    var currentLocation: Location = null;
 
-  // updates user's location
-  updateLocation() {
-    //private newLocation = {};
+    this.http.post<GmapsResponse>(this.gmapsPostUrl, null)
+      .subscribe(
+        res => currentLocation = new Location(res.location.lat, res.location.lng, res.accuracy),
+        err => {
+          console.log("Error occured");
+        }
+      );
 
-    // $http.post(gmapsPostUrl, {}).then(
-    //   function successCallback(response){
-    //     newLocation = new Location(
-    //       response.location.lat,
-    //       response.location.lng,
-    //       response.accuracy
-    //     )
-    //   }, function errorCallback(response){
-    //     // TODO: Better error handling
-    //     $window.alert("Couldn't get location");
-    //   });
+      return currentLocation;
+  };
+}
 
-    //this.location = newLocation;
-  }
-
-  constructor() { }
+interface GmapsResponse {
+  location: {
+    lat: number,
+    lng: number
+  };
+  accuracy: number;
 }

@@ -1,4 +1,19 @@
-<div class="error" *ngIf="location == {}">
+<div class="error" *ngIf="location == null">
   &lt;!&ndash; TODO: Add manual input for location &ndash;&gt;
   <h2>Unable to load location details</h2>
+</div>
+
+<div *ngIf="location != null">
+  <table>
+    <tr>
+      <th>lat</th>
+      <th>lng</th>
+      <th>accuracy</th>
+    </tr>
+    <tr>
+      <td>{{ location.lat }}</td>
+      <td>{{ location.lng }}</td>
+      <td>{{ location.accuracy }}</td>
+    </tr>
+  </table>
 </div>
