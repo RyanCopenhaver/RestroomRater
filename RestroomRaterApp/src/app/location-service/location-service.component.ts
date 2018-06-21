@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {LocationService} from '../location.service';
-import {Location} from '../models/rating';
+import {Location} from '../models/location';
 
 @Component({
   selector: 'app-location',
@@ -9,12 +9,12 @@ import {Location} from '../models/rating';
 })
 
 export class LocationComponent implements OnInit {
-  // inject RatingService
+  // inject ReviewService
   constructor(public locationService: LocationService) { }
 
   // try to load location
   ngOnInit() {
-    locationService.updateLocation();
+    this.locationService.updateLocation();
   }
 
 }

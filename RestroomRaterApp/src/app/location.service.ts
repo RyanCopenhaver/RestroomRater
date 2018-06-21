@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Location} from './models/location';
-import {Keys} from './models/keys'
+import {Keys} from './models/keys';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class LocationService {
   location: Location = {};
 
   // updates user's location
-  function updateLocation() {
+  updateLocation() {
     private newLocation = {};
 
     $http.post(gmapsPostUrl, {}).then(

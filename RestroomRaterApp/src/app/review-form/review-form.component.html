@@ -1,8 +1,8 @@
 <!--TITLE-->
-<h2>Submit a Rating</h2>
+<h2>Submit a Review</h2>
 
 <!--RATING FORM-->
-<form #ratingForm="ngForm" (ngSubmit)="onSubmit(ratingForm)">
+<form #reviewForm="ngForm" (ngSubmit)="onSubmit(reviewForm)">
   <!--Location Text-->
   <div class="form-group">
     <label for="location">Location</label>
@@ -19,30 +19,30 @@
     <input type="number" class="form-control" id="cleanliness"
            name="cleanliness" min="1" max="5" required ngModel>
   </div>
-  <!--Overall Rating Number-->
+  <!--Overall Review Number-->
   <div class="form-group">
-    <label for="overall">Overall Rating</label>
+    <label for="overall">Overall Review</label>
     <input type="number" class="form-control" id="overall"
            name="overall" min="1" max="5" required ngModel>
   </div>
 
   <!--Submit Button-->
-  <input type="submit" [disabled]="!ratingForm.form.valid">
+  <input type="submit" [disabled]="!reviewForm.form.valid">
 
 </form>
 <!--END FORM-->
 <hr>
 <!--Display Ratings-->
 <h2>All Ratings</h2>
-<!--If ratings array has at least one rating-->
-<div *ngIf="ratingService.ratings.length > 0">
-  <!--For loop for ratings-->
-  <div *ngFor="let rating of ratingService.ratings">
-    <h4>Location: {{ rating.location }}</h4>
-    <h4>Changing Table: {{ rating.changing }}</h4>
-    <h4>Cleanliness: {{ rating.cleanliness }}</h4>
-    <h4>Overall: {{ rating.overall }}</h4>
-    <h4>Timestamp: {{ rating.timestamp | date:'medium' }}</h4>
+<!--If reviews array has at least one rating-->
+<div *ngIf="reviewService.reviews.length > 0">
+  <!--For loop for reviews-->
+  <div *ngFor="let review of reviewService.reviews">
+    <h4>Location: {{ review.location }}</h4>
+    <h4>Changing Table: {{ review.hasChangingTables }}</h4>
+    <h4>Cleanliness: {{ review.cleanlinessRating }}</h4>
+    <h4>Overall: {{ review.rating }}</h4>
+    <h4>Timestamp: {{ review.timestamp | date:'medium' }}</h4>
     <hr>
   </div>
 </div>

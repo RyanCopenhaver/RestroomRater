@@ -4,16 +4,18 @@ import {AngularFireModule} from 'angularfire2';
 import { AppComponent } from './app.component';
 import {environment} from './../environments/environment';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
-import { RatingFormComponent } from './rating-form/rating-form.component';
+import { ReviewFormComponent } from './review-form/review-form.component';
 import { FormsModule } from '@angular/forms';
-import { RatingRepository} from '../app/rating-service/rating.repository';
+import { ReviewRepository} from './review-service/review.repository';
 
-import { RatingService} from '../app/rating-service/rating.service';
+import { ReviewService} from './review-service/review.service';
+import { LocationService} from './location.service';
+import { LocationComponent } from './location-service/location-service.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RatingFormComponent
+    ReviewFormComponent
   ],
   imports: [
     BrowserModule,
@@ -21,8 +23,8 @@ import { RatingService} from '../app/rating-service/rating.service';
     AngularFireDatabaseModule,
     FormsModule
   ],
-    
-    providers: [RatingService,RatingRepository],
+
+    providers: [ReviewService,ReviewRepository],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
