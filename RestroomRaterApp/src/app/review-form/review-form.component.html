@@ -1,0 +1,48 @@
+<!--TITLE-->
+<h2>Submit a Review</h2>
+
+<!--RATING FORM-->
+<form #reviewForm="ngForm" (ngSubmit)="onSubmit(reviewForm)">
+  <!--Location Text-->
+  <div class="form-group">
+    <label for="location">Location</label>
+    <input id="location" class="form-control" name="location" required ngModel>
+  </div>
+  <!--Changing Tables Checkbox-->
+  <div class="form-group">
+    <label for="hasChangingTables">Changing Table</label>
+    <input type="checkbox" id="hasChangingTables" class="form-control" name="hasChangingTables" ngModel>
+  </div>
+  <!--Cleanliness Number-->
+  <div class="form-group">
+    <label for="cleanlinessRating">Cleanliness</label>
+    <input type="number" class="form-control" id="cleanlinessRating"
+           name="cleanlinessRating" min="1" max="5" required ngModel>
+  </div>
+  <!--Overall Review Number-->
+  <div class="form-group">
+    <label for="rating">Overall Review</label>
+    <input type="number" class="form-control" id="rating"
+           name="rating" min="1" max="5" required ngModel>
+  </div>
+
+  <!--Submit Button-->
+  <input type="submit" [disabled]="!reviewForm.form.valid">
+
+</form>
+<!--END FORM-->
+<hr>
+<!--Display Ratings-->
+<h2>All Ratings</h2>
+<!--If reviews array has at least one rating-->
+<div *ngIf="reviewService.reviews.length > 0">
+  <!--For loop for reviews-->
+  <div *ngFor="let review of reviewService.reviews">
+    <h4>Location: {{ review.location }}</h4>
+    <h4>Changing Table: {{ review.hasChangingTables }}</h4>
+    <h4>Cleanliness: {{ review.cleanlinessRating }}</h4>
+    <h4>Overall: {{ review.rating }}</h4>
+    <h4>Timestamp: {{ review.timestamp | date:'medium' }}</h4>
+    <hr>
+  </div>
+</div>

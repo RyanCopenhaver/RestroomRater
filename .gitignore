@@ -1,0 +1,8 @@
+# Had to make extre gitignore file due to parent .idea/ folder
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# IDEs and editors
+/.idea
+
+# API Keys
+/RestroomRaterApp/src/app/models/keys.ts
