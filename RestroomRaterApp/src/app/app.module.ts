@@ -9,13 +9,13 @@ import { FormsModule } from '@angular/forms';
 import { ReviewRepository} from './review-service/review.repository';
 
 import { ReviewService} from './review-service/review.service';
-import { LocationService} from './location.service';
-import { LocationComponent } from './location-service/location-service.component';
+// import { LocationComponent } from './location-service/location-service.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ReviewFormComponent
+    ReviewFormComponent,
+    // LocationComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +24,7 @@ import { LocationComponent } from './location-service/location-service.component
     FormsModule
   ],
 
-    providers: [ReviewService,ReviewRepository],
+    providers: [ReviewService, ReviewRepository],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

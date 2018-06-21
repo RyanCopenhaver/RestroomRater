@@ -28,7 +28,7 @@ export class ReviewFormComponent implements OnInit {
     console.log(form.value.cleanlinessRating);
     console.log(timestamp);
     // create new Review with form values
-    let rating = new Review(
+    let review = new Review(
       form.value.location,
       form.value.hasChangingTables,
       form.value.cleanlinessRating,
@@ -36,8 +36,8 @@ export class ReviewFormComponent implements OnInit {
       timestamp
     )
     // add to array
-    this.reviewService.add(rating);
-    this.reviewService.save(rating);
+    this.reviewService.add(review);
+    this.reviewService.save(review);
     // reset form
     form.reset();
   }
