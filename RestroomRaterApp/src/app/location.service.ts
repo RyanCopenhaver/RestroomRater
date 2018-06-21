@@ -1,3 +1,4 @@
+/*
 import { Injectable } from '@angular/core';
 import {Location} from './models/location';
 import {Keys} from './models/keys';
@@ -33,3 +34,4 @@ export class LocationService {
 
   constructor() { }
 }
+*/
