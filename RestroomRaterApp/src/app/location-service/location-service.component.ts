@@ -1,4 +1,3 @@
-/*
 import { Component, OnInit } from '@angular/core';
 import {LocationService} from '../location.service';
 import {Location} from '../models/location';
@@ -19,4 +18,3 @@ export class LocationComponent implements OnInit {
   }
 
 }
-*/
