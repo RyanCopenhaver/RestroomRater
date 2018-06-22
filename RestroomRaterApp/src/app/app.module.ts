@@ -7,16 +7,11 @@ import {AngularFireDatabaseModule} from 'angularfire2/database';
 import { ReviewFormComponent } from './review-form/review-form.component';
 import { FormsModule } from '@angular/forms';
 import { ReviewRepository} from './review-service/review.repository';
-<<<<<<< HEAD
 
-import { ReviewService} from './review-service/review.service';
-// import { LocationComponent } from './location-service/location-service.component';
-=======
 import { HttpClientModule } from '@angular/common/http';
 
 import { ReviewService} from './review-service/review.service';
 import { LocationComponent } from './location-service/location-service.component';
->>>>>>> development
 
 @NgModule({
   declarations: [
@@ -28,12 +23,8 @@ import { LocationComponent } from './location-service/location-service.component
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-<<<<<<< HEAD
-    FormsModule
-=======
     FormsModule,
     HttpClientModule
->>>>>>> development
   ],
 
     providers: [ReviewService, ReviewRepository],
