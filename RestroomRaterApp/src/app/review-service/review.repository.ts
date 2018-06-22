@@ -32,8 +32,8 @@ export class ReviewRepository {
 
     //Save review to firebase database
     saveReview(review: Review) {
-        console.log(JSON.stringify(review));
-           //   this.dataSource.database.ref("Reviews").push(JSON.stringify(Review));
+        console.log(review);
+        this.dataSource.database.ref("Reviews").push(review);
     }
 
     UpdateRating(rating: Review) {
