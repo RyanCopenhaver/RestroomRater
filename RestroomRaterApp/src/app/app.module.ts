@@ -11,20 +11,37 @@ import { ReviewRepository} from './review-service/review.repository';
 import { HttpClientModule } from '@angular/common/http';
 
 import { ReviewService} from './review-service/review.service';
-import { LocationComponent } from './location-service/location-service.component';
+import { LocationComponent} from './location/location.component';
+import { RouterModule} from '@angular/router';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ReviewFormComponent,
-    // LocationComponent
+    HomeComponent,
+    LocationComponent
   ],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot([
+      {
+        path: 'home', component: HomeComponent
+      },
+      {
+        path: 'review', component: ReviewFormComponent
+      },
+      {
+        path: 'search', component: HomeComponent,
+      },
+      {
+        path: '**', redirectTo: 'home'
+      }
+    ])
   ],
 
     providers: [ReviewService, ReviewRepository],

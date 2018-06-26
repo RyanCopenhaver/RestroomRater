@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {LocationService} from '../location.service';
 import {Location} from '../models/location';
-import {Keys} from '../models/keys'
+import {Keys} from '../models/keys';
 
 @Component({
   selector: 'app-location',
