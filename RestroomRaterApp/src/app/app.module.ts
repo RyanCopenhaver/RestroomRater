@@ -14,13 +14,15 @@ import { ReviewService} from './review-service/review.service';
 import { LocationComponent} from './location/location.component';
 import { RouterModule} from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { ReviewSearchComponent } from './review-search/review-search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ReviewFormComponent,
     HomeComponent,
-    LocationComponent
+    LocationComponent,
+    ReviewSearchComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +38,7 @@ import { HomeComponent } from './home/home.component';
         path: 'review', component: ReviewFormComponent
       },
       {
-        path: 'search', component: HomeComponent,
+        path: 'search', component: ReviewSearchComponent,
       },
       {
         path: '**', redirectTo: 'home'
