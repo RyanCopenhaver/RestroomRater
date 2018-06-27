@@ -1,0 +1,38 @@
+<!--TITLE-->
+<h2>Search for Reviews</h2>
+
+<!--RATING FORM-->
+<form #searchForm="ngForm" (ngSubmit)="onSubmit(searchForm)">
+  <!--Changing Tables Checkbox-->
+  <div class="form-group">
+    <label for="hasChangingTables">Changing Table</label>
+    <input type="checkbox" id="hasChangingTables" class="form-control" name="hasChangingTables" ngModel>
+  </div>
+  <!--Cleanliness Number-->
+  <div class="form-group">
+    <label for="cleanlinessRating">Minimum Cleanliness</label>
+    <input type="number" class="form-control" id="cleanlinessRating"
+           name="cleanlinessRating" min="1" max="5" required ngModel>
+  </div>
+  <!--Overall Review Number-->
+  <div class="form-group">
+    <label for="rating">Minimum Overall Rating</label>
+    <input type="number" class="form-control" id="rating"
+           name="rating" min="1" max="5" required ngModel>
+  </div>
+
+  <!--Submit Button-->
+  <input type="submit" [disabled]="!searchForm.form.valid">
+
+</form>
+<!--END FORM-->
+<!--TODO: Display Search Data-->
+<!--TODO: Display Found Reviews-->
+<div *ngIf="searchOverall != null">
+  <hr>
+  <h2>Your Search</h2>
+  <h4>Changing Tables: {{ searchChanging }}</h4>
+  <h4>Minimum Cleanliness: {{ searchCleanliness }}</h4>
+  <h4>Minimum Overall Rating: {{ searchOverall }}</h4>
+</div>
+
