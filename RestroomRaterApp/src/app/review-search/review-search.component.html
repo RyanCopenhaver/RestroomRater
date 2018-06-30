@@ -28,11 +28,19 @@
 <!--END FORM-->
 <!--TODO: Display Search Data-->
 <!--TODO: Display Found Reviews-->
-<div *ngIf="searchOverall != null">
+<div *ngIf="searchRating != null">
   <hr>
   <h2>Your Search</h2>
   <h4>Changing Tables: {{ searchChanging }}</h4>
   <h4>Minimum Cleanliness: {{ searchCleanliness }}</h4>
-  <h4>Minimum Overall Rating: {{ searchOverall }}</h4>
+  <h4>Minimum Overall Rating: {{ searchRating }}</h4>
 </div>
 
+<div *ngIf="searchRating != null">
+  <hr>
+  <h2>Found Results</h2>
+  <h4></h4>
+  <h4></h4>
+  <h4></h4>
+  <h4></h4>
+</div>

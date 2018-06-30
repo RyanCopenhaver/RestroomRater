@@ -35,9 +35,9 @@
 <!--Display Ratings-->
 <h2>All Ratings</h2>
 <!--If reviews array has at least one rating-->
-<div *ngIf="reviewService.reviews.length > 0">
+<!--<div *ngIf="getReviews().length > 0">-->
   <!--For loop for reviews-->
-  <div *ngFor="let review of reviewService.reviews">
+  <div *ngFor="let review of getReviews()">
     <h4>Location: {{ review.location }}</h4>
     <h4>Changing Table: {{ review.hasChangingTables }}</h4>
     <h4>Cleanliness: {{ review.cleanlinessRating }}</h4>
@@ -45,4 +45,4 @@
     <h4>Timestamp: {{ review.timestamp | date:'medium' }}</h4>
     <hr>
   </div>
-</div>
+<!--</div>-->

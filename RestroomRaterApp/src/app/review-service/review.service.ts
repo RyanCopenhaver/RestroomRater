@@ -15,9 +15,16 @@ export class ReviewService {
     this.reviews.push(review);
   }
 
+  getReviews() {
+
+  }
+
+
   save(review) {
       this.repository.saveReview(review);
   }
 
-  constructor(private repository: ReviewRepository) { }
+  constructor(private repository: ReviewRepository) {
+    this.reviews.concat(repository.getReviews());
+  }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ReviewService} from '../review-service/review.service';
 import {Review} from '../models/review';
+import {ReviewRepository} from "../review-service/review.repository";
 
 @Component({
   selector: 'app-rating-form',
@@ -10,9 +11,15 @@ import {Review} from '../models/review';
 
 export class ReviewFormComponent implements OnInit {
   // inject ReviewService
-  constructor(public reviewService: ReviewService) { }
+  constructor(public reviewService: ReviewService, public repository: ReviewRepository) { }
 
   ngOnInit() { }
+
+  getReviews(): Review[] {
+    return this.repository.getReviews();
+  }
+
+
 
   /*
   onSubmit() adds value of form
@@ -23,10 +30,11 @@ export class ReviewFormComponent implements OnInit {
     // get timestamp for Review object
     let timestamp = Date.now();
     // testing the data from the form
-    console.log(form.value.location);
-    console.log(form.value.rating);
-    console.log(form.value.cleanlinessRating);
-    console.log(timestamp);
+    // console.log(form.value.location);
+    // console.log(form.value.rating);
+    // console.log(form.value.cleanlinessRating);
+    // console.log(timestamp);
+
     // create new Review with form values
     let review = new Review(
       form.value.location,
@@ -36,8 +44,9 @@ export class ReviewFormComponent implements OnInit {
       timestamp
     )
     // add to array
-    this.reviewService.add(review);
-    this.reviewService.save(review);
+    // this.reviewService.add(review);
+    // this.reviewService.save(review);
+    this.repository.saveReview(review);
     // reset form
     form.reset();
   }

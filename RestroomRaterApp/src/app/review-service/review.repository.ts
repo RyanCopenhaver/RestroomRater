@@ -15,7 +15,7 @@ export class ReviewRepository {
         this.loaded = true;
         this.dataSource.list('/Reviews').valueChanges().subscribe(reviews => {
             this.reviews = reviews;
-            console.log(this.reviews);
+            // console.log(this.reviews);
           });
     }
     //Get Ratings in Database
@@ -32,7 +32,7 @@ export class ReviewRepository {
 
     //Save review to firebase database
     saveReview(review: Review) {
-        console.log(review);
+        // console.log(review);
         this.dataSource.database.ref("Reviews").push(review);
     }
 
