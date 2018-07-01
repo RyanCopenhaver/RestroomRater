@@ -5,7 +5,8 @@ import {ReviewRepository} from "./review.repository";
 @Injectable({
   providedIn: 'root'
 })
-
+// TODO: Possibly remove Service altogether
+// TODO: As Repository does the job better
 export class ReviewService {
   // array of reviews
   reviews: Review[] = [];

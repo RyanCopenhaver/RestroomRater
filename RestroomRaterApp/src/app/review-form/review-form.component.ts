@@ -8,10 +8,13 @@ import {ReviewRepository} from "../review-service/review.repository";
   templateUrl: './review-form.component.html',
   styleUrls: ['./review-form.component.css']
 })
-
+// TODO: Possibly remove ReviewService entirely from component
 export class ReviewFormComponent implements OnInit {
-  // inject ReviewService
-  constructor(public reviewService: ReviewService, public repository: ReviewRepository) { }
+
+  tempReview: Review;
+
+  // inject ReviewService and ReviewRepository
+  constructor(public repository: ReviewRepository) { }
 
   ngOnInit() { }
 
@@ -19,34 +22,31 @@ export class ReviewFormComponent implements OnInit {
     return this.repository.getReviews();
   }
 
-
-
   /*
   onSubmit() adds value of form
   as a Review object to the reviews array
   in ReviewService
   */
   onSubmit(form) {
+
+    // change value to false if checkbox is never touched
+    let hasChangingTables =
+      form.value.hasChangingTables == "" ? false : form.value.hasChangingTables;
+    console.log("Changing Tables: " + hasChangingTables);
+
     // get timestamp for Review object
     let timestamp = Date.now();
-    // testing the data from the form
-    // console.log(form.value.location);
-    // console.log(form.value.rating);
-    // console.log(form.value.cleanlinessRating);
-    // console.log(timestamp);
 
     // create new Review with form values
-    let review = new Review(
+    this.tempReview = new Review(
       form.value.location,
-      form.value.hasChangingTables,
+      hasChangingTables,
       form.value.cleanlinessRating,
       form.value.rating,
       timestamp
     )
-    // add to array
-    // this.reviewService.add(review);
-    // this.reviewService.save(review);
-    this.repository.saveReview(review);
+    // add Review to Repository
+    this.repository.saveReview(this.tempReview);
     // reset form
     form.reset();
   }

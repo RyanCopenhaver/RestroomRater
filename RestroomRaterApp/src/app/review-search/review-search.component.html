@@ -1,6 +1,12 @@
 <!--TITLE-->
 <h2>Search for Reviews</h2>
 
+<div>
+  <a routerLink="/home">Back to Home</a>
+</div>
+
+<br>
+
 <!--RATING FORM-->
 <form #searchForm="ngForm" (ngSubmit)="onSubmit(searchForm)">
   <!--Changing Tables Checkbox-->
@@ -26,8 +32,9 @@
 
 </form>
 <!--END FORM-->
-<!--TODO: Display Search Data-->
-<!--TODO: Display Found Reviews-->
+
+
+<!--Show search inputs if populated-->
 <div *ngIf="searchRating != null">
   <hr>
   <h2>Your Search</h2>
@@ -35,12 +42,17 @@
   <h4>Minimum Cleanliness: {{ searchCleanliness }}</h4>
   <h4>Minimum Overall Rating: {{ searchRating }}</h4>
 </div>
-
-<div *ngIf="searchRating != null">
+<!--Show search results if array has at least one value-->
+<div *ngIf="searchResults.length > 0">
   <hr>
-  <h2>Found Results</h2>
-  <h4></h4>
-  <h4></h4>
-  <h4></h4>
-  <h4></h4>
+  <h2>Found Results ({{ searchResults.length }})</h2>
+  <!--For loop for reviews-->
+  <div *ngFor="let result of searchResults">
+    <h4>Location: {{ result.location }}</h4>
+    <h4>Changing Table: {{ result.hasChangingTables }}</h4>
+    <h4>Cleanliness: {{ result.cleanlinessRating }}</h4>
+    <h4>Overall: {{ result.rating }}</h4>
+    <h4>Timestamp: {{ result.timestamp | date:'medium' }}</h4>
+  </div>
 </div>
+

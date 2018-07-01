@@ -1,6 +1,10 @@
 <!--TITLE-->
 <h2>Submit a Review</h2>
 
+<div>
+  <a routerLink="/home">Back to Home</a>
+</div>
+
 <!--RATING FORM-->
 <form #reviewForm="ngForm" (ngSubmit)="onSubmit(reviewForm)">
   <!--Location Text-->
@@ -31,18 +35,13 @@
 
 </form>
 <!--END FORM-->
-<hr>
 <!--Display Ratings-->
-<h2>All Ratings</h2>
-<!--If reviews array has at least one rating-->
-<!--<div *ngIf="getReviews().length > 0">-->
-  <!--For loop for reviews-->
-  <div *ngFor="let review of getReviews()">
-    <h4>Location: {{ review.location }}</h4>
-    <h4>Changing Table: {{ review.hasChangingTables }}</h4>
-    <h4>Cleanliness: {{ review.cleanlinessRating }}</h4>
-    <h4>Overall: {{ review.rating }}</h4>
-    <h4>Timestamp: {{ review.timestamp | date:'medium' }}</h4>
-    <hr>
-  </div>
-<!--</div>-->
+<div *ngIf="tempReview != null">
+  <h3>Your Rating Has Been Submitted</h3>
+  <h4>Location: {{ tempReview.location }}</h4>
+  <h4>Changing Table: {{ tempReview.hasChangingTables }}</h4>
+  <h4>Cleanliness: {{ tempReview.cleanlinessRating }}</h4>
+  <h4>Overall: {{ tempReview.rating }}</h4>
+  <h4>Timestamp: {{ tempReview.timestamp | date:'medium' }}</h4>
+  <hr>
+</div>

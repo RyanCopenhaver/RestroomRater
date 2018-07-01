@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {Review} from '../models/review';
-import {ReviewService} from '../review-service/review.service';
 import {ReviewRepository} from "../review-service/review.repository";
 
 @Component({
@@ -9,16 +8,31 @@ import {ReviewRepository} from "../review-service/review.repository";
   styleUrls: ['./review-search.component.css']
 })
 export class ReviewSearchComponent implements OnInit {
-  searchResults: any[];
+  testReviews: Review[] = [];
+  searchResults: Review[] = [];
   searchChanging: boolean;
   searchCleanliness: number;
   searchRating: number;
 
-  constructor(public reviewService: ReviewService, public repository: ReviewRepository) { }
+  // inject ReviewRepository
+  constructor(public repository: ReviewRepository) { }
+
 
   ngOnInit() {
+    this.testReviews = this.getReviews();
   }
 
+  // TODO: Document This
+  getReviews(): Review[] {
+    return this.repository.getReviews();
+  }
+
+
+  /*
+  * checkReview()
+  * compares user input with
+  * review values from database
+  * */
   checkReview(hasChangingTables, cleanlinessRating, rating, testReview): boolean {
     // if changing tables is checked, or both reviews are checked
     if (hasChangingTables == false ||
@@ -35,26 +49,26 @@ export class ReviewSearchComponent implements OnInit {
     return false;
   }
 
+  /*
+  * onSubmit()
+  * gets user input values
+  * and compares them to all review objects
+  * in the repository. When matches are found
+  * they are pushed to the searchResults array
+  * */
   onSubmit(form) {
     this.searchChanging = form.value.hasChangingTables;
     this.searchCleanliness = form.value.cleanlinessRating;
     this.searchRating = form.value.rating;
 
-    // TODO: fix error when pushing to searchResults array
+    // iterate through all reviews from repository
     for(let review of this.repository.getReviews()) {
-
+      // if checkReview() returns true, add review to searchResults array
       if (this.checkReview(this.searchChanging,this.searchCleanliness,this.searchRating, review)) {
-        // this.searchResults.push(review);
-        console.log('Pushed to searchResults: ');
-        console.log(review);
-      }
-      else {
-        console.log('Not Pushed: ');
-        console.log(review);
+        this.searchResults.push(review);
       }
 
     }
-
 
     // reset form
     form.reset();
