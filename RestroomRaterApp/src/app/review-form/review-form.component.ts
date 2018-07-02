@@ -29,10 +29,15 @@ export class ReviewFormComponent implements OnInit {
   */
   onSubmit(form) {
 
-    // change value to false if checkbox is never touched
-    let hasChangingTables =
-      form.value.hasChangingTables == "" ? false : form.value.hasChangingTables;
-    console.log("Changing Tables: " + hasChangingTables);
+    let hasChangingTables;
+    // if hasChangingTables checkbox is not touched,
+    // make value false, otherwise use value (true or false)
+    if ((form.value.hasChangingTables == "") || (form.value.hasChangingTables == null)) {
+      hasChangingTables = false;
+    }
+    else {
+      hasChangingTables = form.value.hasChangingTables;
+    }
 
     // get timestamp for Review object
     let timestamp = Date.now();

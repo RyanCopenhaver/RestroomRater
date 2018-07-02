@@ -57,18 +57,23 @@ export class ReviewSearchComponent implements OnInit {
   * they are pushed to the searchResults array
   * */
   onSubmit(form) {
-    this.searchChanging = form.value.hasChangingTables;
+    // if hasChangingTables checkbox is not touched,
+    // make value false, otherwise use value (true or false)
+    if ((form.value.hasChangingTables == "") || (form.value.hasChangingTables == null)) {
+      this.searchChanging = false;
+    }
+    else {
+      this.searchChanging = form.value.hasChangingTables;
+    }
+
     this.searchCleanliness = form.value.cleanlinessRating;
     this.searchRating = form.value.rating;
 
-    // iterate through all reviews from repository
-    for(let review of this.repository.getReviews()) {
-      // if checkReview() returns true, add review to searchResults array
-      if (this.checkReview(this.searchChanging,this.searchCleanliness,this.searchRating, review)) {
-        this.searchResults.push(review);
-      }
-
-    }
+    // filter values from repository to searchResults[]
+    // that return true from checkReview()
+    this.searchResults = this.repository.getReviews().filter(
+      review => this.checkReview(this.searchChanging,
+        this.searchCleanliness, this.searchRating, review));
 
     // reset form
     form.reset();
