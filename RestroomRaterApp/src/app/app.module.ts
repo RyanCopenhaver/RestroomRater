@@ -15,6 +15,7 @@ import { LocationComponent} from './location/location.component';
 import { RouterModule} from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ReviewSearchComponent } from './review-search/review-search.component';
+import { ReviewLocationRepository } from './review-location-service/review-location.repository';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,7 @@ import { ReviewSearchComponent } from './review-search/review-search.component';
     ])
   ],
 
-    providers: [ReviewService, ReviewRepository],
+    providers: [ReviewService, ReviewRepository,ReviewLocationRepository],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ReviewService} from '../review-service/review.service';
 import {Review} from '../models/review';
 import {ReviewRepository} from "../review-service/review.repository";
+import { ReviewLocationRepository } from '../review-location-service/review-location.repository';
 
 @Component({
   selector: 'app-rating-form',
@@ -12,14 +13,22 @@ import {ReviewRepository} from "../review-service/review.repository";
 export class ReviewFormComponent implements OnInit {
 
   tempReview: Review;
-
+  private locations: any[] = [];
+  private reviews: Review[] = [];
+  //public reviewLocationRepo : ReviewLocationRepository;
   // inject ReviewService and ReviewRepository
-  constructor(public repository: ReviewRepository) { }
+  constructor(public repository: ReviewRepository,public reviewLocationRepo : ReviewLocationRepository) { }
 
-  ngOnInit() { }
+  ngOnInit() { 
+    this.getLocations();
+    this.getReviews();
+  }
 
   getReviews(): Review[] {
     return this.repository.getReviews();
+  }
+  getLocations(): any[] {
+    return this.reviewLocationRepo.getLocations();
   }
 
   /*
@@ -52,6 +61,9 @@ export class ReviewFormComponent implements OnInit {
     )
     // add Review to Repository
     this.repository.saveReview(this.tempReview);
+    this.locations = this.getLocations();
+    this.reviews = this.getReviews();
+    this.reviewLocationRepo.updateReviewLocations(this.tempReview,this.locations,this.reviews);
     // reset form
     form.reset();
   }
