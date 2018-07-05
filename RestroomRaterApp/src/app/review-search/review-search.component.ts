@@ -59,7 +59,7 @@ export class ReviewSearchComponent implements OnInit {
   onSubmit(form) {
     // if hasChangingTables checkbox is not touched,
     // make value false, otherwise use value (true or false)
-    if ((form.value.hasChangingTables == "") || (form.value.hasChangingTables == null)) {
+    if ((form.value.hasChangingTables == '') || (form.value.hasChangingTables == null)) {
       this.searchChanging = false;
     }
     else {
