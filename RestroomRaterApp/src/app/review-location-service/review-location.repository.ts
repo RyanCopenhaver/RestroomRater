@@ -27,9 +27,9 @@ export class ReviewLocationRepository {
         return this.locations;
     }
     //Save location to firebase database
-    addLocation(location: Review) {
+    addLocation(review: Review) {
         // console.log(review);
-        this.dataSource.database.ref("Locations").push({ Name: location.location, AvgRating: location.rating });
+        this.dataSource.database.ref("Locations").push({ Name: review.location, AvgRating: review.rating, AvgCleanlinessRating:review.cleanlinessRating });
         console.log('New location Added to DB!');
 
         //UpdateAggregateReviews
@@ -81,21 +81,27 @@ export class ReviewLocationRepository {
     //Update aggregated ratings for location with new review data
     updateLocationAggregateRatings(newReview,location,reviewArray) {
         var ratingTotal= 0;
+        var cRatingTotal = 0;
         var cTotal = 0;
         var total =  reviewArray.length;
-        console.log('rArrr', reviewArray);
 
         for(var i = 0; i < total; i++) {
             console.log(reviewArray[i].rating,reviewArray[i].location);
 
             if(reviewArray[i].location == newReview.location) {
                 ratingTotal += reviewArray[i].rating;
+                cRatingTotal += reviewArray[i].cleanlinessRating;
+
+
             }
       
         }
-        var avg = ((ratingTotal+newReview.rating)/(total+1));
-        location.AvgRating = avg.toFixed(2);
-        console.log('avg',avg);
+        var avgOverallRating = ((ratingTotal+newReview.rating)/(total+1));
+        var avgOverallCRating = ((ratingTotal+newReview.cleanlinessRating)/(total+1));
+
+        location.AvgRating = avgOverallRating.toFixed(2);
+        location.AvgCleanlinessRating = avgOverallCRating.toFixed(2);
+        console.log('avg',avgOverallRating);
         this.updateLocation(location);
     }
 
