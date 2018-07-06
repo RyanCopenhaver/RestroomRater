@@ -1,3 +1,5 @@
+import { Place } from "./place";
+
 export class Review {
 
   constructor(
