@@ -11,8 +11,8 @@ export class Review {
   //  public long: number,
     public rating: number,
     public timestamp: number,
-    public geoLocation?: Location,
-    //public place?: Place
+    // public geoLocation?: Location,
+    // public place?: Place
   ) { }
 
 }
