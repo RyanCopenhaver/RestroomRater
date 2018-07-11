@@ -58,7 +58,7 @@ export class ReviewFormComponent implements OnInit {
       form.value.cleanlinessRating,
       form.value.rating,
       timestamp
-    )
+    );
     // add Review to Repository
     this.repository.saveReview(this.tempReview);
     this.locations = this.getLocations();
