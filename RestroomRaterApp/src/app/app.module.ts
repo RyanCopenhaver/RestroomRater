@@ -16,6 +16,9 @@ import { RouterModule} from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ReviewSearchComponent } from './review-search/review-search.component';
 import { ReviewLocationRepository } from './review-location-service/review-location.repository';
+import { NavigationComponent } from './navigation/navigation.component';
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,8 @@ import { ReviewLocationRepository } from './review-location-service/review-locat
     ReviewFormComponent,
     HomeComponent,
     LocationComponent,
-    ReviewSearchComponent
+    ReviewSearchComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +35,7 @@ import { ReviewLocationRepository } from './review-location-service/review-locat
     AngularFireDatabaseModule,
     FormsModule,
     HttpClientModule,
+    NgbModule.forRoot(),
     RouterModule.forRoot([
       {
         path: 'home', component: HomeComponent

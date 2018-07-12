@@ -1,0 +1,64 @@
+/*.navbar-brand {
+    font-family: 'Wendy One', sans-serif;
+}*/
+
+/*Turn off border radius that is not needed*/
+.navbar {
+    border-radius: 0;
+    margin-bottom: 0;
+}
+
+/*Various Navbar stylings*/
+.navbar-inverse {
+    background-color: #003554;
+    color: white;
+    min-height: 70px;
+}
+.navbar-inverse .navbar-brand {
+    color: inherit;
+    font-size: 200%;
+    /*This font is only used for the company brand*/
+    font-family: 'Wendy One', sans-serif;
+    font-weight: bold;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: inherit;
+    font-size: 150%;
+    margin-top: 10px;
+    border-radius: 5px;
+    font-family: sans-serif;
+}
+.navbar-inverse .navbar-nav > li > a:hover {
+    color: #ffffff;
+    background-color: #30c5ff;
+
+}
+.navbar-nav {
+    color: inherit;
+}
+.navbar-nav > li > a {
+    line-height: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.navbar-brand {
+    line-height: 40px;
+}
+.navbar-inverse .navbar-collapse {
+    border: none;
+}
+.navbar-inverse .navbar-nav>.active>a {
+    background-color: #5bc0de;
+}
+.navbar-toggle {
+    border: 2px solid white;
+    margin-top: 15px;
+    padding: 10px;
+}
+.navbar-toggle:hover, .navbar-toggle:active, .navbar-toggle:focus {
+    background-color: #30c5ff;
+}
+
+
+
+
