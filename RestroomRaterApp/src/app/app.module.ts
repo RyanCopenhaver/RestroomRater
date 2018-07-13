@@ -19,6 +19,7 @@ import { ReviewLocationRepository } from './review-location-service/review-locat
 import { NavigationComponent } from './navigation/navigation.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HomeComponent,
     LocationComponent,
     ReviewSearchComponent,
-    NavigationComponent
+    NavigationComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
