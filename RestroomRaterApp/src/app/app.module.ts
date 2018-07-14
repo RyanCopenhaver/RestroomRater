@@ -24,6 +24,10 @@ import { AppRouting } from './app-routing.module';
 import { UserAuthenticationService } from './services/user-authentication.service';
 import { AuthGuardComponent } from './auth-guard/auth-guard.component';
 import { UserRepository } from './user-service/user.repository';
+import { NavigationComponent } from './navigation/navigation.component';
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +38,9 @@ import { UserRepository } from './user-service/user.repository';
     ReviewSearchComponent,
     UserServiceComponent,
     UserLoginComponent,
-    AuthGuardComponent
+    AuthGuardComponent,
+    NavigationComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +49,7 @@ import { UserRepository } from './user-service/user.repository';
     FormsModule,
     HttpClientModule,
     AppRouting,
+    NgbModule.forRoot(),
     RouterModule.forRoot([
       {
         path: 'home', component: HomeComponent

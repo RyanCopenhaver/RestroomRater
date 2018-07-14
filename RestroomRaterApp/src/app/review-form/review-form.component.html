@@ -1,47 +1,54 @@
-<!--TITLE-->
-<h2>Submit a Review</h2>
+<main role="main" class="container">
+    <!--TITLE-->
+    <h2 class="text-center">Submit Review</h2>
+    <hr>
+    <!--TODO: Validate all values, especially numerical ones!-->
+    <!--TODO: Currently, user can manually input any number-->
+    <!--RATING FORM-->
+    <form #reviewForm="ngForm" (ngSubmit)="onSubmit(reviewForm)">
+        <!--Location Text-->
+            <div class="row form-group">
+                <div class="col-xs-8 col-xs-offset-2">
+                    <label for="location">Location</label>
+                    <input id="location" class="form-control" name="location" placeholder="Name" required ngModel>
+                </div>
+            </div>
+        <!--</div>-->
 
-<div>
-  <a routerLink="/home">Back to Home</a>
-</div>
+        <div class="row form-group">
 
-<!--RATING FORM-->
-<form #reviewForm="ngForm" (ngSubmit)="onSubmit(reviewForm)">
-  <!--Location Text-->
-  <div class="form-group">
-    <label for="location">Location</label>
-    <input id="location" class="form-control" name="location" required ngModel>
-  </div>
-  <!--Changing Tables Checkbox-->
-  <div class="form-group">
-    <label for="hasChangingTables">Changing Table</label>
-    <input type="checkbox" id="hasChangingTables" class="form-control" name="hasChangingTables" ngModel>
-  </div>
-  <!--Cleanliness Number-->
-  <div class="form-group">
-    <label for="cleanlinessRating">Cleanliness</label>
-    <input type="number" class="form-control" id="cleanlinessRating"
-           name="cleanlinessRating" min="1" max="5" required ngModel>
-  </div>
-  <!--Overall Review Number-->
-  <div class="form-group">
-    <label for="rating">Overall Review</label>
-    <input type="number" class="form-control" id="rating"
-           name="rating" min="1" max="5" required ngModel>
-  </div>
+            <!--Cleanliness Number-->
+            <div class="col-xs-3 col-xs-offset-3">
+                <label for="cleanlinessRating">Cleanliness</label>
+                <input type="number" class="form-control" id="cleanlinessRating" name="cleanlinessRating" min="1" max="5" placeholder="1 - 5" required ngModel>
+            </div>
 
-  <!--Submit Button-->
-  <input type="submit" [disabled]="!reviewForm.form.valid">
+            <!--Overall Review Number-->
+            <div class="col-xs-3">
+                <label for="rating">Overall Review</label>
+                <input type="number" class="form-control" id="rating"
+                       name="rating" min="1" max="5" placeholder="1 - 5" required ngModel>
+            </div>
 
-</form>
-<!--END FORM-->
-<!--Display Ratings-->
-<div *ngIf="tempReview != null">
-  <h3>Your Rating Has Been Submitted</h3>
-  <h4>Location: {{ tempReview.location }}</h4>
-  <h4>Changing Table: {{ tempReview.hasChangingTables }}</h4>
-  <h4>Cleanliness: {{ tempReview.cleanlinessRating }}</h4>
-  <h4>Overall: {{ tempReview.rating }}</h4>
-  <h4>Timestamp: {{ tempReview.timestamp | date:'medium' }}</h4>
-  <hr>
-</div>
+        </div>
+
+        <!--Changing Tables Checkbox-->
+        <div class="row text-center">
+            <div class="form-check">
+                <input type="checkbox" id="hasChangingTables" class="form-check-input" name="hasChangingTables" ngModel>
+                <label class="form-check-label" for="hasChangingTables">Changing Table</label>
+            </div>
+        </div>
+        <!--Submit Button-->
+        <div class="row text-center">
+            <button class="btn" type="submit" [disabled]="!reviewForm.form.valid">Submit Review</button>
+        </div>
+
+    </form>
+    <!--END FORM-->
+    <!--Display Ratings-->
+    <div *ngIf="tempReview != null">
+        <h3 class="text-success text-center">Your Rating Has Been Submitted!</h3>
+    </div>
+
+</main>
