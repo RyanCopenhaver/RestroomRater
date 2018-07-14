@@ -16,4 +16,10 @@
     position: absolute;
     /*margin-top: .3rem;*/
     margin-left: -2.25rem;
+    /*width: 30px;*/
+    /*height: 30px;*/
+}
+
+.form-check-label {
+    /*height: 30px;*/
 }

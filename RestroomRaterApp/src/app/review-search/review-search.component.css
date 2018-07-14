@@ -1,0 +1,29 @@
+.col-form-label {
+    padding-top: calc(.375rem + 1px);
+    padding-bottom: calc(.375rem + 1px);
+    margin-bottom: 0;
+    font-size: inherit;
+    line-height: 1.5;
+}
+
+.form-check {
+    position: relative;
+    display: block;
+    padding-left: 2.25rem;
+}
+
+.form-check-input {
+    position: absolute;
+    /*margin-top: .3rem;*/
+    margin-left: -2.25rem;
+    /*width: 30px;*/
+    /*height: 30px;*/
+}
+
+.form-check-label {
+    /*height: 30px;*/
+}
+
+.search {
+    border-right: 1px solid black;
+}
