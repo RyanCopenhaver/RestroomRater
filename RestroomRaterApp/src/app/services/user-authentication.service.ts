@@ -20,7 +20,7 @@ export class UserAuthenticationService {
 
   newUser: User;
 
-  //log user in with google
+  //log user in with google oauth
   login() {
     this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
       .then((user) => {
