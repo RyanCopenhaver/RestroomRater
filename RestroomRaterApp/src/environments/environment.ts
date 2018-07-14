@@ -1,3 +1,5 @@
+import { Keys } from "../app/models/keys";
+
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build ---prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
@@ -5,7 +7,7 @@
 export const environment = {
   production: true,
   firebase: {
-    apiKey: "",
+    apiKey: Keys.FIREBASE_API_KEY,
     authDomain: "restroomrater-31170.firebaseapp.com",
     databaseURL: "https://restroomrater-31170.firebaseio.com",
     projectId: "restroomrater-31170",

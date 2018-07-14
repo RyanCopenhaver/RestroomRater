@@ -1,8 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {AngularFireModule} from 'angularfire2';
+import { AngularFireAuth } from 'angularfire2/auth';
+
 import { AppComponent } from './app.component';
-import {environment} from './../environments/environment';
+import {environment} from '../environments/environment';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
 import { ReviewFormComponent } from './review-form/review-form.component';
 import { FormsModule } from '@angular/forms';
@@ -16,6 +18,12 @@ import { RouterModule} from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ReviewSearchComponent } from './review-search/review-search.component';
 import { ReviewLocationRepository } from './review-location-service/review-location.repository';
+import { UserServiceComponent } from './user-service/user-service.component';
+import { UserLoginComponent } from './user-login/user-login.component';
+import { AppRouting } from './app-routing.module';
+import { UserAuthenticationService } from './services/user-authentication.service';
+import { AuthGuardComponent } from './auth-guard/auth-guard.component';
+import { UserRepository } from './user-service/user.repository';
 
 @NgModule({
   declarations: [
@@ -23,7 +31,10 @@ import { ReviewLocationRepository } from './review-location-service/review-locat
     ReviewFormComponent,
     HomeComponent,
     LocationComponent,
-    ReviewSearchComponent
+    ReviewSearchComponent,
+    UserServiceComponent,
+    UserLoginComponent,
+    AuthGuardComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +42,7 @@ import { ReviewLocationRepository } from './review-location-service/review-locat
     AngularFireDatabaseModule,
     FormsModule,
     HttpClientModule,
+    AppRouting,
     RouterModule.forRoot([
       {
         path: 'home', component: HomeComponent
@@ -47,7 +59,7 @@ import { ReviewLocationRepository } from './review-location-service/review-locat
     ])
   ],
 
-    providers: [ReviewService, ReviewRepository,ReviewLocationRepository],
+    providers: [ReviewService, ReviewRepository,ReviewLocationRepository,UserRepository,UserAuthenticationService,AngularFireAuth],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
