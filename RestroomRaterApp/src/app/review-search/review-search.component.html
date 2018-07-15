@@ -1,9 +1,8 @@
 <!--Fluid container to help resizing/positioning columns-->
 <main role="main" class="container-fluid">
-    <div class="row">
         <div class="col-xs-4 search">
             <!--TITLE-->
-            <h3>Search Reviews</h3>
+            <h3>Preferences</h3>
 
             <!--RATING FORM-->
             <form #searchForm="ngForm" (ngSubmit)="onSubmit(searchForm)">
@@ -28,9 +27,8 @@
                 </div>
 
                 <!--Submit Button-->
-                <!--<input type="submit" [disabled]="!searchForm.form.valid">-->
-                <div class="row text-center">
-                    <button class="btn" type="submit" [disabled]="!searchForm.form.valid">Search</button>
+                <div>
+                    <button class="btn mt-10" type="submit" [disabled]="!searchForm.form.valid">Search</button>
                 </div>
 
             </form>
@@ -39,28 +37,30 @@
             <!--Show search inputs if populated-->
             <div *ngIf="searchRating != null">
                 <hr>
-                <h2>Your Search</h2>
-                <h4>Changing Tables: {{ searchChanging }}</h4>
-                <h4>Minimum Cleanliness: {{ searchCleanliness }}</h4>
-                <h4>Minimum Overall Rating: {{ searchRating }}</h4>
+                <h3>Your Preferences</h3>
+                <div *ngIf="searchChanging"><span class="text-bold">Changing Table:</span> Yes</div>
+                <div *ngIf="!searchChanging"><span class="text-bold">Changing Table:</span> No</div>
+                <!--<div>Changing Tables: Yes</div>-->
+                <div><span class="text-bold">Minimum Cleanliness:</span> {{ searchCleanliness }}</div>
+                <div><span class="text-bold">Minimum Overall Rating:</span> {{ searchRating }}</div>
             </div>
 
         </div>
 
-        <div class="col-xs-8">
+        <div class="col-xs-8 results">
+            <h2 class="text-center text-bold">Search Reviews</h2>
             <!--Show search results if array has at least one value-->
             <div *ngIf="searchResults.length > 0">
+
                 <h3 class="text-center">Search Results ({{ searchResults.length }})</h3>
                 <!--For loop for reviews-->
                 <div *ngFor="let result of searchResults">
-                    <h4><span class="text-bold">Location:</span> {{ result.location }}</h4>
-                    <h4><span class="text-bold">Changing Table:</span> {{ result.hasChangingTables }}</h4>
-                    <h4><span class="text-bold">Cleanliness:</span> {{ result.cleanlinessRating }}</h4>
-                    <h4><span class="text-bold">Overall:</span> {{ result.rating }}</h4>
-                    <h4><span class="text-bold">Timestamp:</span> {{ result.timestamp | date:'medium' }}</h4>
+                    <hr class="scheme-line">
+                    <div><span class="text-bold">Location:</span> {{ result.location }}</div>
+                    <div><span class="text-bold">Changing Table:</span> {{ result.hasChangingTables }}</div>
+                    <!--<div><span class="text-bold">Cleanliness:</span> {{ result.cleanlinessRating }}</div>-->
+                    <div><span class="text-bold">Overall:</span> {{ result.rating }}</div>
                 </div>
-                <hr>
             </div>
         </div>
-    </div>
 </main>

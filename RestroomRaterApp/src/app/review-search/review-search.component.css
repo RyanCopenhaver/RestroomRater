@@ -1,3 +1,31 @@
+.btn {
+    font-size: 110%;
+    background-color: #1995ad;
+    color: white;
+    font-weight: bold;
+
+}
+
+.btn:disabled {
+    background-color: #bcbabe;
+    color: #333333;
+}
+
+.btn:hover:enabled {
+    background-color: #a1d6e2;
+    border: 1px solid #1995ad;
+    color: white;
+}
+
+/*form control extra styling*/
+.form-control {
+    border-color: #a1d6e2;
+}
+.form-control:focus {
+    border-width: 2px;
+    border-color: #1995ad;
+}
+
 .col-form-label {
     padding-top: calc(.375rem + 1px);
     padding-bottom: calc(.375rem + 1px);
@@ -14,16 +42,14 @@
 
 .form-check-input {
     position: absolute;
-    /*margin-top: .3rem;*/
     margin-left: -2.25rem;
-    /*width: 30px;*/
-    /*height: 30px;*/
+    height: 20px;
+    width: 20px;
+    border-color: #a1d6e2;
 }
 
 .form-check-label {
-    /*height: 30px;*/
+    margin-left: 10px;
 }
 
-.search {
-    border-right: 1px solid black;
-}
+

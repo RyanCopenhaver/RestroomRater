@@ -1,45 +1,36 @@
-/*.navbar-brand {
-    font-family: 'Wendy One', sans-serif;
-}*/
 
-/*Turn off border radius that is not needed*/
-/*.navbar {
+.navbar {
+    background-color: #a1d6e2;
+    color: white;
+    border-bottom: 2px solid #bcbabe;
     border-radius: 0;
     margin-bottom: 0;
-}*/
-
-.nav_button_link {
-    /*background: red;*/
-    /*color: black;*/
-    border: 0;
-    padding: 0;
-    margin: 10px;
-    /*font-size: 150%;*/
+    min-height: 70px;
 }
 
 /*Various Navbar stylings*/
-/*.navbar-inverse {
-    background-color: #003554;
-    color: white;
-    min-height: 70px;
-}
-.navbar-inverse .navbar-brand {
+.navbar .navbar-brand {
     color: inherit;
     font-size: 200%;
-    !*This font is only used for the company brand*!
+    /*This font is only used for the company brand*/
     font-family: 'Wendy One', sans-serif;
     font-weight: bold;
 }
-.navbar-inverse .navbar-nav > li > a {
+.navbar .navbar-nav > li > a {
     color: inherit;
-    font-size: 150%;
-    margin-top: 10px;
+    font-size: 125%;
+    margin-top: 15px;
     border-radius: 5px;
     font-family: sans-serif;
 }
-.navbar-inverse .navbar-nav > li > a:hover {
+.navbar .navbar-nav > li > a:hover {
     color: #ffffff;
-    background-color: #30c5ff;
+    background-color: #1995ad;
+
+}
+.navbar .navbar-nav > li > a:focus {
+    color: #ffffff;
+    background-color: #a1d6e2;
 
 }
 .navbar-nav {
@@ -47,17 +38,17 @@
 }
 .navbar-nav > li > a {
     line-height: 30px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 .navbar-brand {
     line-height: 40px;
 }
-.navbar-inverse .navbar-collapse {
+.navbar .navbar-collapse {
     border: none;
 }
-.navbar-inverse .navbar-nav>.active>a {
-    background-color: #5bc0de;
+.navbar .navbar-nav>.active>a {
+    background-color: #1995ad;
 }
 .navbar-toggle {
     border: 2px solid white;
@@ -65,8 +56,8 @@
     padding: 10px;
 }
 .navbar-toggle:hover, .navbar-toggle:active, .navbar-toggle:focus {
-    background-color: #30c5ff;
-}*/
+    background-color: #1995ad;
+}
 
 
 

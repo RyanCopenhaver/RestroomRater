@@ -1,9 +1,16 @@
 .footer {
+    background-color: #a1d6e2;
+    color: white;
     position: relative;
     width: 100%;
-    border: 1px solid black;
-    margin-top: -60px;
-    height: 60px;
+    border-top: 2px solid #bcbabe;
+    margin-top: -70px;
+    height: 70px;
     clear: both;
+    padding-top: 5px;
 
+}
+
+.footer div, footer span {
+    font-size: 110%;
 }

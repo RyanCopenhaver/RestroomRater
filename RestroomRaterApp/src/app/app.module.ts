@@ -50,20 +50,6 @@ import { FooterComponent } from './footer/footer.component';
     HttpClientModule,
     AppRouting,
     NgbModule.forRoot(),
-    RouterModule.forRoot([
-      {
-        path: 'home', component: HomeComponent
-      },
-      {
-        path: 'review', component: ReviewFormComponent
-      },
-      {
-        path: 'search', component: ReviewSearchComponent,
-      },
-      {
-        path: '**', redirectTo: 'home'
-      }
-    ])
   ],
 
     providers: [ReviewService, ReviewRepository,ReviewLocationRepository,UserRepository,UserAuthenticationService,AngularFireAuth],

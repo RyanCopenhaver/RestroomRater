@@ -2,6 +2,83 @@
 /*@import '~bootstrap/dist/css/bootstrap.min.css';*/
 @import url('https://fonts.googleapis.com/css?family=Wendy+One');
 
+html, body {
+    height: 100%;
+
+}
+
+main {
+    /*margin-top: 20px;*/
+}
+
+input {
+    border: 1px solid #a1d6e2;
+}
+
+/*wrapper for sticky footer*/
+#wrap {
+    min-height: 100%;
+    background-color: #f1f1f2;
+    color: #333333;
+}
+
+/*This helps in creating the sticky footer*/
+#main {
+
+    overflow:auto;
+    padding-bottom: 70px; /* this needs to be bigger than footer height*/
+}
+
+.scheme-line {
+    border-top: 1px solid #1995ad;
+}
+
 .text-bold {
     font-weight: bold;
+}
+
+.ml-auto {
+    /*margin-left: auto !important;*/
+}
+
+.mt-10 {
+ margin-top: 10px;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+/*PHONES AND TABLETS*/
+@media (max-width: 991px) {
+
+    #main, .form-control {
+        font-size: 16px;
+    }
+
+    label  {
+        font-size: 18px;
+    }
+
+}
+
+/*DESKTOP AND LAPTOPS*/
+@media (min-width: 992px) {
+
+    #main, .form-control {
+        font-size: 18px;
+    }
+
+    label {
+        font-size: 20px;
+    }
+
 }

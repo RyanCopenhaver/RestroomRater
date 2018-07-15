@@ -1,0 +1,18 @@
+.btn {
+    font-size: 110%;
+    background-color: #1995ad;
+    color: white;
+    font-weight: bold;
+
+}
+
+.btn:disabled {
+    background-color: #bcbabe;
+    color: #333333;
+}
+
+.btn:hover:enabled {
+    background-color: #a1d6e2;
+    border: 1px solid #1995ad;
+    color: white;
+}
