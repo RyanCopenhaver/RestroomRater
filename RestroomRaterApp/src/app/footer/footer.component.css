@@ -4,10 +4,11 @@
     position: relative;
     width: 100%;
     border-top: 2px solid #bcbabe;
-    margin-top: -70px;
-    height: 70px;
+    margin-top: -80px;
+    height: 80px;
     clear: both;
     padding-top: 5px;
+    font-family: "Istok Web", sans-serif;
 
 }
 

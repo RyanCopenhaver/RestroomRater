@@ -13,7 +13,7 @@
     color: inherit;
     font-size: 200%;
     /*This font is only used for the company brand*/
-    font-family: 'Wendy One', sans-serif;
+    font-family: 'Righteous', cursive;
     font-weight: bold;
 }
 .navbar .navbar-nav > li > a {
@@ -21,7 +21,8 @@
     font-size: 125%;
     margin-top: 15px;
     border-radius: 5px;
-    font-family: sans-serif;
+    font-family: "Istok Web", sans-serif;
+    font-weight: bold;
 }
 .navbar .navbar-nav > li > a:hover {
     color: #ffffff;
@@ -37,12 +38,12 @@
     color: inherit;
 }
 .navbar-nav > li > a {
-    line-height: 30px;
+    line-height: 35px;
     padding-top: 5px;
     padding-bottom: 5px;
 }
 .navbar-brand {
-    line-height: 40px;
+    line-height: 35px;
 }
 .navbar .navbar-collapse {
     border: none;
@@ -57,6 +58,10 @@
 }
 .navbar-toggle:hover, .navbar-toggle:active, .navbar-toggle:focus {
     background-color: #1995ad;
+}
+
+.navbar-toggle .icon-bar {
+    background-color: white;
 }
 
 

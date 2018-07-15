@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 /*@import '~bootstrap/dist/css/bootstrap.min.css';*/
-@import url('https://fonts.googleapis.com/css?family=Wendy+One');
+@import url('https://fonts.googleapis.com/css?family=Alfa+Slab+One|Istok+Web:400,700|Monda:400,700|PT+Sans+Caption:400,700|Righteous');
 
 html, body {
     height: 100%;
@@ -20,17 +20,20 @@ input {
     min-height: 100%;
     background-color: #f1f1f2;
     color: #333333;
+    font-family: "Istok Web", sans-serif;
 }
 
 /*This helps in creating the sticky footer*/
 #main {
 
     overflow:auto;
-    padding-bottom: 70px; /* this needs to be bigger than footer height*/
+    padding-bottom: 80px; /* this needs to be bigger than footer height*/
 }
 
 .scheme-line {
     border-top: 1px solid #1995ad;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .text-bold {
@@ -41,12 +44,20 @@ input {
     /*margin-left: auto !important;*/
 }
 
+.mt-5 {
+    margin-top: 5px;
+}
+
 .mt-10 {
  margin-top: 10px;
 }
 
 .mt-20 {
     margin-top: 20px;
+}
+
+.mb-5 {
+    margin-bottom: 5px;
 }
 
 .mb-10 {
