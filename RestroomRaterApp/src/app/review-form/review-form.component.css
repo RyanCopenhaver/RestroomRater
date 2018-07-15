@@ -52,3 +52,7 @@
 .form-check-label {
     margin-left: 10px;
 }
+
+.submit-success {
+    color: #1995ad;
+}
