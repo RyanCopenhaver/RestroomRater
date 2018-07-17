@@ -1,12 +1,11 @@
 <!--Fluid container to help resizing/positioning columns-->
 <main role="main" class="container-fluid">
+        <!--SEARCH COLUMN-->
         <div class="col-xs-4 search">
-            <!--TITLE-->
             <h3>Preferences</h3>
 
             <!--RATING FORM-->
             <form #searchForm="ngForm" (ngSubmit)="onSubmit(searchForm)">
-                <!--Changing Tables Checkbox-->
 
                 <!--Cleanliness Number-->
                 <div class="form-group">
@@ -14,6 +13,7 @@
                     <input type="number" class="form-control" id="cleanlinessRating"
                            name="cleanlinessRating" min="1" max="5" placeholder="1 - 5" required ngModel>
                 </div>
+
                 <!--Overall Review Number-->
                 <div class="form-group">
                     <label for="rating">Minimum Rating</label>
@@ -21,6 +21,7 @@
                            name="rating" min="1" max="5" placeholder="1 - 5" required ngModel>
                 </div>
 
+                <!--Changing Tables Checkbox-->
                 <div class="form-check">
                     <input type="checkbox" id="hasChangingTables" class="form-check-input" name="hasChangingTables" ngModel>
                     <label for="hasChangingTables" class="form-check-label">Changing Table</label>
@@ -34,24 +35,24 @@
             </form>
             <!--END FORM-->
 
-            <!--Show search inputs if populated-->
+            <!--Show search preferences if populated-->
             <div *ngIf="searchRating != null">
                 <hr>
                 <h3>Your Preferences</h3>
                 <div *ngIf="searchChanging"><span class="text-bold">Changing Table:</span> Yes</div>
                 <div *ngIf="!searchChanging"><span class="text-bold">Changing Table:</span> No</div>
-                <!--<div>Changing Tables: Yes</div>-->
                 <div><span class="text-bold">Minimum Cleanliness:</span> {{ searchCleanliness }}</div>
                 <div><span class="text-bold">Minimum Overall Rating:</span> {{ searchRating }}</div>
             </div>
 
         </div>
+        <!--END SEARCH COLUMN-->
 
+        <!--SEARCH RESULTS-->
         <div class="col-xs-8 results">
             <h2 class="text-center text-bold">Search Reviews</h2>
             <!--Show search results if array has at least one value-->
             <div *ngIf="searchResults.length > 0">
-
                 <h3 class="text-center text-bold">Search Results ({{ searchResults.length }})</h3>
                 <!--For loop for reviews-->
                 <div *ngFor="let result of searchResults">
@@ -63,3 +64,4 @@
             </div>
         </div>
 </main>
+<!--END MAIN-->

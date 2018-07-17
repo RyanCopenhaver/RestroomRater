@@ -25,10 +25,13 @@ export class UserAuthenticationService {
     this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
       .then((user) => {
 
+        //store loggedIn user email to database to use as Id
+        sessionStorage.setItem('userEmail',user.email);
         if (user.additionalUserInfo.isNewUser) {
-          //add userInfo to database
-          this.newUser = new User(user.additionalUserInfo.profile.email, user.additionalUserInfo.profile.name);
-          this.repo.saveUser(this.newUser);
+            sessionStorage.setItem('newUser',"true");
+        }
+        else {
+          sessionStorage.setItem('newUser',"false");
         }
 
       }).catch(

@@ -28,9 +28,20 @@ export class ReviewFormComponent implements OnInit {
     this.getReviews();
   }
 
+  /*
+  * getReviews() loads the reviews
+  * from the ReviewRepository into
+  * a local array of Reviews
+  * */
   getReviews(): Review[] {
     return this.repository.getReviews();
   }
+
+  /*
+  * getLocations() loads the locations
+  * from the ReviewLocationRepository into
+  * a local array of Locations
+  * */
   getLocations(): any[] {
     return this.reviewLocationRepo.getLocations();
   }
@@ -41,7 +52,6 @@ export class ReviewFormComponent implements OnInit {
   in ReviewService
   */
   onSubmit(form) {
-
     let hasChangingTables;
     // if hasChangingTables checkbox is not touched,
     // make value false, otherwise use value (true or false)

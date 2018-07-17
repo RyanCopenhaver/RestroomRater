@@ -18,11 +18,16 @@ export class ReviewSearchComponent implements OnInit {
   constructor(public repository: ReviewRepository) { }
 
 
+  // load Reviews into array on init
   ngOnInit() {
     this.testReviews = this.getReviews();
   }
 
-  // TODO: Document This
+  /*
+  * getReviews() gets all Reviews
+  * from the ReviewRepository and adds
+  * them to the local array
+  * */
   getReviews(): Review[] {
     return this.repository.getReviews();
   }

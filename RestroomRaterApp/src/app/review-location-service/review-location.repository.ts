@@ -55,9 +55,8 @@ export class ReviewLocationRepository {
     }
     //Get reviews by specific user
     updateReviewLocations(newReview: Review, locArray,reviewArray) {
-        var found: boolean = false;
-        console.log('asdfasdfasdf', locArray);
         var location = {};
+        var found: boolean = false;
         //Loop through existing locatoins
         for (var i = 0; i < locArray.length; i++) {
             if (newReview.location == locArray[i].Name) {

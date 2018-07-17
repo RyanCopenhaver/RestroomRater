@@ -1,3 +1,4 @@
+/*Button styling*/
 .btn {
     font-size: 110%;
     background-color: #1995ad;
@@ -5,19 +6,17 @@
     font-weight: bold;
 
 }
-
 .btn:disabled {
     background-color: #bcbabe;
     color: #333333;
 }
-
 .btn:hover:enabled {
     background-color: #a1d6e2;
     border: 1px solid #1995ad;
     color: white;
 }
 
-/*form control extra styling*/
+/*Form control extra styling*/
 .form-control {
     border-color: #a1d6e2;
 }
@@ -26,21 +25,12 @@
     border-color: #1995ad;
 }
 
-
-.col-form-label {
-    padding-top: calc(.375rem + 1px);
-    padding-bottom: calc(.375rem + 1px);
-    margin-bottom: 0;
-    font-size: inherit;
-    line-height: 1.5;
-}
-
+/*Checkbox input and label*/
 .form-check {
     position: relative;
     display: block;
     padding-left: 2.25rem;
 }
-
 .form-check-input {
     position: absolute;
     margin-left: -2.25rem;
@@ -48,12 +38,12 @@
     width: 20px;
     border-color: #a1d6e2;
 }
-
 .form-check-label {
     margin-left: 10px;
     margin-top: 2px;
 }
 
+/*Submit success*/
 .submit-success {
     color: #1995ad;
 }

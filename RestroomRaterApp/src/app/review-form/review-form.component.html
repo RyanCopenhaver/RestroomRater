@@ -2,22 +2,22 @@
     <!--TITLE-->
     <h2 class="text-center text-bold">Submit Review</h2>
     <hr class="scheme-line">
-    <!--TODO: Validate all values, especially numerical ones!-->
-    <!--TODO: Currently, user can manually input any number-->
+
+    <!--TODO: Validate all user input, especially numerical ones!-->
     <!--RATING FORM-->
     <form #reviewForm="ngForm" (ngSubmit)="onSubmit(reviewForm)">
         <app-location></app-location>
 
 
+        <!--Row group-->
         <div class="row form-group">
-
-            <!--Cleanliness Number-->
+            <!--Cleanliness Rating-->
             <div class="col-xs-3 col-xs-offset-3">
                 <label for="cleanlinessRating">Cleanliness</label>
                 <input type="number" class="form-control" id="cleanlinessRating" name="cleanlinessRating" min="1" max="5" placeholder="1 - 5" required ngModel>
             </div>
 
-            <!--Overall Review Number-->
+            <!--Overall Rating-->
             <div class="col-xs-3">
                 <label for="rating">Overall Review</label>
                 <input type="number" class="form-control" id="rating"
@@ -33,6 +33,7 @@
                 <label class="form-check-label" for="hasChangingTables">Changing Table</label>
             </div>
         </div>
+
         <!--Submit Button-->
         <div class="row text-center">
             <button class="btn mt-10" type="submit" [disabled]="!reviewForm.form.valid">Submit</button>
@@ -40,9 +41,14 @@
 
     </form>
     <!--END FORM-->
-    <!--Display Ratings-->
+
+    <!--If submit successful-->
     <div *ngIf="tempReview != null">
         <h3 class="submit-success text-center">Your Rating Has Been Submitted!</h3>
     </div>
 
 </main>
+<<<<<<< HEAD
+=======
+<!--END MAIN-->
+>>>>>>> 6740a3844f2247a9fb42cf3265c16f2d8c7b2b8e
