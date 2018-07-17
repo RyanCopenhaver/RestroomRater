@@ -1,19 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
-/*@import '~bootstrap/dist/css/bootstrap.min.css';*/
+/*import Google Fonts*/
 @import url('https://fonts.googleapis.com/css?family=Istok+Web:400,700|Righteous');
 
+/*Element styling*/
 html, body {
     height: 100%;
 
 }
-
-main {
-    /*margin-top: 20px;*/
-}
-
 input {
     border: 1px solid #a1d6e2;
 }
+
+/*************************************/
+/*ID STYLING*/
 
 /*wrapper for sticky footer*/
 #wrap {
@@ -25,48 +23,44 @@ input {
 
 /*This helps in creating the sticky footer*/
 #main {
-
     overflow:auto;
     padding-bottom: 80px; /* this needs to be bigger than footer height*/
 }
 
+/*************************************/
+/*CLASS STYLING*/
 .scheme-line {
     border-top: 1px solid #1995ad;
     margin-top: 10px;
     margin-bottom: 10px;
 }
-
+/*Text styles*/
 .text-bold {
     font-weight: bold;
 }
 
-.ml-auto {
-    /*margin-left: auto !important;*/
-}
-
+/*Margin styles*/
 .mt-5 {
     margin-top: 5px;
 }
-
 .mt-10 {
  margin-top: 10px;
 }
-
 .mt-20 {
     margin-top: 20px;
 }
-
 .mb-5 {
     margin-bottom: 5px;
 }
-
 .mb-10 {
     margin-bottom: 10px;
 }
-
 .mb-20 {
     margin-bottom: 20px;
 }
+
+/************************************************/
+/*DISPLAY SIZE STYLING*/
 
 /*PHONES AND TABLETS*/
 @media (max-width: 991px) {

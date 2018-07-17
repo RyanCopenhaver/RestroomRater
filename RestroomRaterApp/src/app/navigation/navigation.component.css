@@ -1,4 +1,4 @@
-
+/*Styling for navigation area*/
 .navbar {
     background-color: #a1d6e2;
     color: white;
@@ -7,8 +7,6 @@
     margin-bottom: 0;
     min-height: 70px;
 }
-
-/*Various Navbar stylings*/
 .navbar .navbar-brand {
     color: inherit;
     font-size: 200%;
@@ -59,7 +57,6 @@
 .navbar-toggle:hover, .navbar-toggle:active, .navbar-toggle:focus {
     background-color: #1995ad;
 }
-
 .navbar-toggle .icon-bar {
     background-color: white;
 }

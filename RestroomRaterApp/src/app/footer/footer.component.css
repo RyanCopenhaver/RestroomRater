@@ -1,3 +1,4 @@
+/*Footer styling*/
 .footer {
     background-color: #a1d6e2;
     color: white;
@@ -11,7 +12,6 @@
     font-family: "Istok Web", sans-serif;
 
 }
-
 .footer div, footer span {
     font-size: 110%;
 }

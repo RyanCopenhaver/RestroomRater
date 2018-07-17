@@ -1,3 +1,4 @@
+/*Stying for link buttons on page*/
 .link-button {
     display: inline-block;
     font-size: 110%;
@@ -9,7 +10,6 @@
     text-decoration: none;
 
 }
-
 .link-button:hover:enabled {
     background-color: #a1d6e2;
     border: 1px solid #1995ad;
