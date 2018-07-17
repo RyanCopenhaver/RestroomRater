@@ -3,7 +3,7 @@ import {ReviewService} from '../review-service/review.service';
 import {Review} from '../models/review';
 import {ReviewRepository} from "../review-service/review.repository";
 import { ReviewLocationRepository } from '../review-location-service/review-location.repository';
-import {LocationComponent} from '../location/location.component';
+import {PlaceInputComponent} from '../place-input/place-input.component';
 
 @Component({
   selector: 'app-rating-form',
@@ -17,7 +17,7 @@ export class ReviewFormComponent implements OnInit {
   private locations: any[] = [];
   private reviews: Review[] = [];
 
-  @ViewChild(LocationComponent) locationComponent;
+  @ViewChild(PlaceInputComponent) placeInputComponent;
 
   //public reviewLocationRepo : ReviewLocationRepository;
   // inject ReviewService and ReviewRepository
@@ -72,7 +72,7 @@ export class ReviewFormComponent implements OnInit {
       form.value.cleanlinessRating,
       form.value.rating,
       timestamp,
-      this.locationComponent.currentLocation
+      this.placeInputComponent.getCurrentLocation()
     );
 
     // add Review to Repository

@@ -28,6 +28,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FooterComponent } from './footer/footer.component';
+import { PlaceInputComponent } from './place-input/place-input.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { FooterComponent } from './footer/footer.component';
     UserLoginComponent,
     AuthGuardComponent,
     NavigationComponent,
-    FooterComponent
+    FooterComponent,
+    PlaceInputComponent
   ],
   imports: [
     BrowserModule,
