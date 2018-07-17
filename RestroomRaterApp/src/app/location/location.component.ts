@@ -21,12 +21,3 @@ export class LocationComponent implements OnInit {
 
   ngOnInit() {}
 }
-
-
-interface GmapsResponse {
-  location: {
-    lat: number,
-    lng: number
-  };
-  accuracy: number;
-}

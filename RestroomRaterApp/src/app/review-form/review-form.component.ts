@@ -18,7 +18,6 @@ export class ReviewFormComponent implements OnInit {
   private reviews: Review[] = [];
 
   @ViewChild(LocationComponent) locationComponent;
-  geolocation: Location;
 
   //public reviewLocationRepo : ReviewLocationRepository;
   // inject ReviewService and ReviewRepository
@@ -27,11 +26,6 @@ export class ReviewFormComponent implements OnInit {
   ngOnInit() {
     this.getLocations();
     this.getReviews();
-  }
-
-  ngAfterViewInit() {
-    this.geolocation = this.locationComponent.currentLocation
-    console.log(JSON.stringify(this.geolocation))
   }
 
   getReviews(): Review[] {
@@ -67,9 +61,11 @@ export class ReviewFormComponent implements OnInit {
       hasChangingTables,
       form.value.cleanlinessRating,
       form.value.rating,
-      timestamp
+      timestamp,
+      this.locationComponent.currentLocation
     );
-    // add Review to Repository
+
+    add Review to Repository
     this.repository.saveReview(this.tempReview);
     this.locations = this.getLocations();
     this.reviews = this.getReviews();

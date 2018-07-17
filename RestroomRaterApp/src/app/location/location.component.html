@@ -1,17 +1,3 @@
 <div class="alert alert-danger" *ngIf="currentLocation == null">
   <strong>Error</strong> Unable to load location details
 </div>
-
-<div class="row form-group" *ngIf="currentLocation != null">
-    <div class="col-xs-8 col-xs-offset-2">
-        <label for="lat">Lat</label>
-        <input id="lat" class="form-control" name="lat" placeholder="Name" required [(ngModel)]="currentLocation.lat">
-    </div>
-</div>
-
-<div class="row form-group" *ngIf="currentLocation != null">
-    <div class="col-xs-8 col-xs-offset-2">
-        <label for="lng">Lng</label>
-        <input id="lng" class="form-control" name="lng" placeholder="Name" required [(ngModel)]="currentLocation.lng">
-    </div>
-</div>
