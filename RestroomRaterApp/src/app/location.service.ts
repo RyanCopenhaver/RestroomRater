@@ -9,25 +9,18 @@ import {Keys} from './models/keys';
 })
 
 export class LocationService {
-  constructor(private http: HttpClient) { }
 
-  private gmapsPostUrl = "https://www.googleapis.com/geolocation/v1/geolocate?key=" + Keys.GMAPS_API_KEY;
+  private gmapsPostUrl: string;
+  private gPlacePostUrl: string;
 
-  private gPlacePostUrl = "https://maps.googleapis.com/maps/api/place/autocomplete/xml?";
+  constructor(private http: HttpClient) {
+    this.gmapsPostUrl = "https://www.googleapis.com/geolocation/v1/geolocate?key=" + Keys.GMAPS_API_KEY;
+    this.gPlacePostUrl = "https://maps.googleapis.com/maps/api/place/autocomplete/xml?";
+  }
 
   // TODO: add default values?
-  updateLocation(): Location {
-    var currentLocation: Location = null;
-
-    this.http.post<GmapsResponse>(this.gmapsPostUrl, null)
-      .subscribe(
-        res => currentLocation = new Location(res.location.lat, res.location.lng, res.accuracy),
-        err => {
-          console.log("Error occured");
-        }
-      );
-
-      return currentLocation;
+  callLocationApi() {
+    return this.http.post<GmapsResponse>(this.gmapsPostUrl, null);
   };
 
   updateAutoCompleteOptions(input: string, location: Location): Place[] {

@@ -2,25 +2,31 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {LocationService} from '../location.service';
 import {Location} from '../models/location';
-import {Keys} from '../models/keys';
 
 @Component({
   selector: 'app-location',
   templateUrl: './location.component.html',
-  styleUrls: ['./location.component.css']
+  styleUrls: ['./location.component.css'],
+  providers:[ LocationService ]
 })
 
 export class LocationComponent implements OnInit {
   // inject ReviewService
-  constructor(private http: HttpClient) {
-    var locationService = new LocationService(http);
-    this.currentLocation = locationService.updateLocation();
+  currentLocation: Location;
+
+  constructor(private locationService: LocationService) {
+    this.locationService.callLocationApi().subscribe(res => {this.currentLocation = new Location(res.location.lat, res.location.lng, res.accuracy)});
   }
 
-  public currentLocation: Location = null;
 
-  // try to load location
-  ngOnInit() {
+  ngOnInit() {}
+}
 
-  }
+
+interface GmapsResponse {
+  location: {
+    lat: number,
+    lng: number
+  };
+  accuracy: number;
 }

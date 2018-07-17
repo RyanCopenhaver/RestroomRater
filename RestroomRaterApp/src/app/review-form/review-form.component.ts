@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import {ReviewService} from '../review-service/review.service';
 import {Review} from '../models/review';
 import {ReviewRepository} from "../review-service/review.repository";
 import { ReviewLocationRepository } from '../review-location-service/review-location.repository';
+import {LocationComponent} from '../location/location.component';
 
 @Component({
   selector: 'app-rating-form',
@@ -15,13 +16,22 @@ export class ReviewFormComponent implements OnInit {
   tempReview: Review;
   private locations: any[] = [];
   private reviews: Review[] = [];
+
+  @ViewChild(LocationComponent) locationComponent;
+  geolocation: Location;
+
   //public reviewLocationRepo : ReviewLocationRepository;
   // inject ReviewService and ReviewRepository
   constructor(public repository: ReviewRepository,public reviewLocationRepo : ReviewLocationRepository) { }
 
-  ngOnInit() { 
+  ngOnInit() {
     this.getLocations();
     this.getReviews();
+  }
+
+  ngAfterViewInit() {
+    this.geolocation = this.locationComponent.currentLocation
+    console.log(JSON.stringify(this.geolocation))
   }
 
   getReviews(): Review[] {

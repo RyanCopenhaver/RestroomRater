@@ -1,19 +1,17 @@
-<div class="error" *ngIf="location == null">
-  &lt;!&ndash; TODO: Add manual input for location &ndash;&gt;
-  <h2>Unable to load location details</h2>
+<div class="alert alert-danger" *ngIf="currentLocation == null">
+  <strong>Error</strong> Unable to load location details
 </div>
 
-<div *ngIf="location != null">
-  <table>
-    <tr>
-      <th>lat</th>
-      <th>lng</th>
-      <th>accuracy</th>
-    </tr>
-    <tr>
-      <td>{{ location.lat }}</td>
-      <td>{{ location.lng }}</td>
-      <td>{{ location.accuracy }}</td>
-    </tr>
-  </table>
+<div class="row form-group" *ngIf="currentLocation != null">
+    <div class="col-xs-8 col-xs-offset-2">
+        <label for="lat">Lat</label>
+        <input id="lat" class="form-control" name="lat" placeholder="Name" required [(ngModel)]="currentLocation.lat">
+    </div>
+</div>
+
+<div class="row form-group" *ngIf="currentLocation != null">
+    <div class="col-xs-8 col-xs-offset-2">
+        <label for="lng">Lng</label>
+        <input id="lng" class="form-control" name="lng" placeholder="Name" required [(ngModel)]="currentLocation.lng">
+    </div>
 </div>
