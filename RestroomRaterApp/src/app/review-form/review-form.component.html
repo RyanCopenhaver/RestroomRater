@@ -6,15 +6,8 @@
     <!--TODO: Currently, user can manually input any number-->
     <!--RATING FORM-->
     <form #reviewForm="ngForm" (ngSubmit)="onSubmit(reviewForm)">
-      <app-location></app-location>
-        <!--Location Text-->
-            <div class="row form-group">
-                <div class="col-xs-8 col-xs-offset-2">
-                    <label for="location">Location</label>
-                    <input id="location" class="form-control" name="location" placeholder="Name" required ngModel>
-                </div>
-            </div>
-        <!--</div>-->
+        <app-location></app-location>
+
 
         <div class="row form-group">
 

@@ -65,7 +65,7 @@ export class ReviewFormComponent implements OnInit {
       this.locationComponent.currentLocation
     );
 
-    add Review to Repository
+    // add Review to Repository
     this.repository.saveReview(this.tempReview);
     this.locations = this.getLocations();
     this.reviews = this.getReviews();

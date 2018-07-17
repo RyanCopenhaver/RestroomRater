@@ -23,23 +23,12 @@ export class LocationService {
     return this.http.post<GmapsResponse>(this.gmapsPostUrl, null);
   };
 
-  updateAutoCompleteOptions(input: string, location: Location): Place[] {
-    var placeOptions: Place[] = [];
+  callPlacesApi(input: string, location: Location) {
     var currentPostUrl = this.gPlacePostUrl + "input=" + input + "&types=establishment";
     currentPostUrl += "&location=" + location.lat + "," + location.lng;
     currentPostUrl += "&radius=500&key=" + Keys.GMAPS_API_KEY;
 
-    this.http.post<GPlaceResponse>(currentPostUrl, null)
-      .subscribe(
-        res => res.results.forEach(function (result) {
-                  placeOptions.push(new Place(result.place_id, result.name, result.formatted_address))
-                }),
-        err => {
-          console.log("Error Fetching Places");
-        }
-      )
-
-    return placeOptions;
+    return this.http.post<GPlaceResponse>(currentPostUrl, null);
   }
 }
 
