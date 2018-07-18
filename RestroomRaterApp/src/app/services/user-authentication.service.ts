@@ -25,8 +25,10 @@ export class UserAuthenticationService {
     this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
       .then((user) => {
 
-        //store loggedIn user email to database to use as Id
-        sessionStorage.setItem('userEmail',user.email);
+        console.log("logged user",user.additionalUserInfo);
+        //store loggedIn user userName to database to use as Id
+        sessionStorage.setItem('userName',user.additionalUserInfo.profile.name);
+
         if (user.additionalUserInfo.isNewUser) {
             sessionStorage.setItem('newUser',"true");
         }

@@ -52,6 +52,8 @@ export class UserRepository {
     }
     //make sure that duplicate values are not stored in database for User list
     upsert<T>(user) {
+        sessionStorage.setItem('userId',user.uid);
+
         if(JSON.parse(sessionStorage.getItem('newUser'))) {
             console.log('new User');
             this.dataSource.database.ref("Users").push({ email: user.email, displayName: user.displayName, uId: user.uid });

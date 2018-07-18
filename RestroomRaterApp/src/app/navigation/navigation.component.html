@@ -14,12 +14,16 @@
             <a class="navbar-brand" routerLink="/home">Restroom Rater</a>
         </div>
         <!--Navigation Links-->
-       <!-- <div class="collapse navbar-collapse" id="the-navbar">
+     <div class="collapse navbar-collapse" id="the-navbar">
             <ul class="nav navbar-nav">
-                <li><a routerLink="/review">Submit Review</a></li>
-                <li><a routerLink="/search">Search Reviews</a></li>
+                    <div class="row text-left">
+
+                   <app-user-login *ngIf="loggedIn"></app-user-login>
+                   </div>
+               <!-- <li><a routerLink="/review">Submit Review</a></li>
+                <li><a routerLink="/search">Search Reviews</a></li>-->
             </ul>
-        </div>-->
+        </div>
     </div>
 </nav>
 
