@@ -1,2 +1,4 @@
-<button class="btn text-center" (click)="login()" *ngIf="!(user | async)?.uid">Login</button>
-<button class="btn text-center" (click)="logout()" *ngIf="(user | async)?.uid" #logOutBtn>Logout</button>
+<div class="login-buttons">
+    <button class="btn text-center" (click)="login()" *ngIf="!(user | async)?.uid">Login</button>
+    <button class="btn text-center" (click)="logout()" *ngIf="(user | async)?.uid" #logOutBtn>Logout</button>
+</div>
