@@ -22,7 +22,7 @@ const appRoutes: Routes = [
      path: 'login', component: UserLoginComponent,
  },
  {
-     path: '**', redirectTo: 'home'
+     path: '**', redirectTo: 'login'
  }
 ];
 
