@@ -16,7 +16,28 @@
     border: 1px solid #1995ad;
     color: white;
 }
+/*
 .login-buttons {
     width:100px;
     margin:40px auto;
 }
+*/
+
+.user-name {
+    color: #1995ad;
+}
+
+.logout-section {
+    margin-left: 15px;
+    margin-top: 17px;
+
+}
+
+.logout-section .btn {
+    font-size: 125%;
+    background-color: #a1d6e2;
+}
+.logout-section .btn:hover {
+    background-color: #1995ad;
+}
+

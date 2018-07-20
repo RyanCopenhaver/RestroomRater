@@ -11,17 +11,17 @@
                 <span class="icon-bar"></span>
             </button>
             <!--Brand name and site title-->
-            <a class="navbar-brand" routerLink="/home">Restroom Rater</a>
+            <a *ngIf="loggedIn" class="navbar-brand" routerLink="/home">Restroom Rater</a>
+            <a *ngIf="!loggedIn" class="navbar-brand" routerLink="/login">Restroom Rater</a>
         </div>
         <!--Navigation Links-->
-     <div class="collapse navbar-collapse" id="the-navbar">
+        <div class="collapse navbar-collapse" id="the-navbar">
             <ul class="nav navbar-nav">
-                    <div class="row text-left">
-
-                   <app-user-login *ngIf="loggedIn"></app-user-login>
-                   </div>
-               <!-- <li><a routerLink="/review">Submit Review</a></li>
-                <li><a routerLink="/search">Search Reviews</a></li>-->
+                <li *ngIf="loggedIn">
+                    <app-user-login></app-user-login>
+                </li>
+                <li *ngIf="loggedIn"><a routerLink="/review">Review</a></li>
+                <li *ngIf="loggedIn"><a routerLink="/search">Search</a></li>
             </ul>
         </div>
     </div>

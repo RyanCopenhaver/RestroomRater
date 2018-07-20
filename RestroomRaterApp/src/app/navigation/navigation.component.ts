@@ -14,7 +14,6 @@ export class NavigationComponent implements OnInit {
     router.events.subscribe((val) => {
       //detect when route changes
       this.loggedIn = JSON.parse(sessionStorage.getItem("loggedIn"));
-
     });
   }
 
