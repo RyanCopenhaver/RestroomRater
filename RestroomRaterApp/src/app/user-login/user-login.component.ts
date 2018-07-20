@@ -45,6 +45,7 @@ export class UserLoginComponent implements OnInit {
         console.log(user);
         // added by Ryan to check login when app is first loaded for navigation purposes
         sessionStorage.setItem("loggedIn", "true");
+        sessionStorage.setItem('userName',user.displayName);
     
         this.currentUser =  user;
 
