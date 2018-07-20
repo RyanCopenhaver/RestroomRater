@@ -27,7 +27,7 @@ export class ReviewRepository {
     }
     //Save review to firebase database
     saveReview(review: Review) {
-        // console.log(review);
+         console.log(review);
         this.dataSource.database.ref("Reviews").push(review);
     }
     //delete review from firebase database

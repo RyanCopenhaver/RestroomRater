@@ -64,14 +64,16 @@ export class ReviewFormComponent implements OnInit {
 
     // get timestamp for Review object
     let timestamp = Date.now();
+    let userId = sessionStorage.getItem("userId");
 
     // create new Review with form values
     this.tempReview = new Review(
-      form.value.location,
+      '',
       hasChangingTables,
       form.value.cleanlinessRating,
       form.value.rating,
       timestamp,
+      userId,
       this.placeInputComponent.getCurrentLocation()
     );
 

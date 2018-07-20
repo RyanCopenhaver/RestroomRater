@@ -11,6 +11,7 @@ export class Review {
   //  public long: number,
     public rating: number,
     public timestamp: number,
+    public userId: string,
     public geoLocation: Location,
     // public place?: Place
   ) { }

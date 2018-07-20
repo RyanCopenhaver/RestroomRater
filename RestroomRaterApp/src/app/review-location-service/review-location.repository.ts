@@ -16,7 +16,6 @@ export class ReviewLocationRepository {
         this.loaded = true;
         this.dataSource.list('/Locations').valueChanges().subscribe(locations => {
             this.locations = locations;
-            // console.log(this.locations);
         });
     }
     //Get Locations in Database
