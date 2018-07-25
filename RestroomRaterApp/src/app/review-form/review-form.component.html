@@ -10,21 +10,80 @@
 
 
         <!--Row group-->
-        <div class="row form-group">
-            <!--Cleanliness Rating-->
+<!--        <div class="row form-group">
+            &lt;!&ndash;Cleanliness Rating&ndash;&gt;
             <div class="col-xs-3 col-xs-offset-3">
                 <label for="cleanlinessRating">Cleanliness</label>
                 <input type="number" class="form-control" id="cleanlinessRating" name="cleanlinessRating" min="1" max="5" placeholder="1 - 5" required ngModel>
             </div>
 
-            <!--Overall Rating-->
+            &lt;!&ndash;Overall Rating&ndash;&gt;
             <div class="col-xs-3">
                 <label for="rating">Overall Review</label>
                 <input type="number" class="form-control" id="rating"
                        name="rating" min="1" max="5" placeholder="1 - 5" required ngModel>
             </div>
 
+        </div>-->
+
+        <!--Cleanliness Radio Buttons-->
+        <div class="row form-group text-center">
+            <div><label for="cleanlinessRating1">Cleanliness</label></div>
+            <div class="form-check form-check-inline">
+                <input type="radio" id="cleanlinessRating1" class="form-radio-input" name="cleanlinessRating" value="1" required ngModel>
+                <label class="form-radio-label" for="cleanlinessRating1">1</label>
+            </div>
+
+            <div class="form-check form-check-inline">
+                <input type="radio" id="cleanlinessRating2" class="form-radio-input" name="cleanlinessRating" value="2" ngModel>
+                <label class="form-radio-label" for="cleanlinessRating2">2</label>
+            </div>
+
+            <div class="form-check form-check-inline">
+                <input type="radio" id="cleanlinessRating3" class="form-radio-input" name="cleanlinessRating" value="3" ngModel>
+                <label class="form-radio-label" for="cleanlinessRating3">3</label>
+            </div>
+
+            <div class="form-check form-check-inline">
+                <input type="radio" id="cleanlinessRating4" class="form-radio-input" name="cleanlinessRating" value="4" ngModel>
+                <label class="form-radio-label" for="cleanlinessRating4">4</label>
+            </div>
+
+            <div class="form-check form-check-inline">
+                <input type="radio" id="cleanlinessRating5" class="form-radio-input" name="cleanlinessRating" value="5" ngModel>
+                <label class="form-radio-label" for="cleanlinessRating5">5</label>
+            </div>
         </div>
+
+        <!--Overall Rating Radio Buttons-->
+        <div class="row form-group text-center">
+            <div><label for="rating1">Overall Rating</label></div>
+            <div class="form-check form-check-inline">
+                <input type="radio" id="rating1" class="form-radio-input" name="rating" value="1" required ngModel>
+                <label class="form-radio-label" for="rating1">1</label>
+            </div>
+
+            <div class="form-check form-check-inline">
+                <input type="radio" id="rating2" class="form-radio-input" name="rating" value="2" ngModel>
+                <label class="form-radio-label" for="rating2">2</label>
+            </div>
+
+            <div class="form-check form-check-inline">
+                <input type="radio" id="rating3" class="form-radio-input" name="rating" value="3" ngModel>
+                <label class="form-radio-label" for="rating3">3</label>
+            </div>
+
+            <div class="form-check form-check-inline">
+                <input type="radio" id="rating4" class="form-radio-input" name="rating" value="4" ngModel>
+                <label class="form-radio-label" for="rating4">4</label>
+            </div>
+
+            <div class="form-check form-check-inline">
+                <input type="radio" id="rating5" class="form-radio-input" name="rating" value="5" ngModel>
+                <label class="form-radio-label" for="rating5">5</label>
+            </div>
+        </div>
+
 
         <!--Changing Tables Checkbox-->
         <div class="row text-center">

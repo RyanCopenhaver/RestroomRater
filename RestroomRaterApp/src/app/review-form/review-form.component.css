@@ -47,3 +47,23 @@
 .submit-success {
     color: #1995ad;
 }
+
+.form-check-inline {
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    padding-left: 0;
+    margin-right: .75rem;
+}
+
+.form-radio-label {
+    margin-top: 8px;
+    margin-right: 10px;
+    margin-left: 4px;
+
+}
+.form-radio-input {
+    height: 20px;
+    width: 20px;
+    border-color: #a1d6e2;
+}
