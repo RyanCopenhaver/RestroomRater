@@ -6,3 +6,10 @@
 
 # API Keys
 /RestroomRaterApp/src/app/models/keys.ts
+RestroomRaterApp/functions/
+RestroomRaterApp/firestore.indexes.json
+RestroomRaterApp/.firebaserc
+RestroomRaterApp/database.rules.json
+RestroomRaterApp/firebase.json
+RestroomRaterApp/firestore.rules
+RestroomRaterApp/storage.rules

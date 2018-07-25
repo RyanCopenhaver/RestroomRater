@@ -68,7 +68,6 @@ export class ReviewFormComponent implements OnInit {
 
     // create new Review with form values
     this.tempReview = new Review(
-      '',
       hasChangingTables,
       form.value.cleanlinessRating,
       form.value.rating,

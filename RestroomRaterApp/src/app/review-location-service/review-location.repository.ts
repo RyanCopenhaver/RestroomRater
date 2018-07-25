@@ -28,7 +28,7 @@ export class ReviewLocationRepository {
     //Save location to firebase database
     addLocation(review: Review) {
         // console.log(review);
-        this.dataSource.database.ref("Locations").push({ Name: review.location, AvgRating: review.rating, AvgCleanlinessRating:review.cleanlinessRating });
+        this.dataSource.database.ref("Locations").push({ Name: review.geoLocation, AvgRating: review.rating, AvgCleanlinessRating:review.cleanlinessRating });
         console.log('New location Added to DB!');
 
         //UpdateAggregateReviews
@@ -58,7 +58,7 @@ export class ReviewLocationRepository {
         var found: boolean = false;
         //Loop through existing locatoins
         for (var i = 0; i < locArray.length; i++) {
-            if (newReview.location == locArray[i].Name) {
+            if (newReview.geoLocation == locArray[i].geoLocation) {
                 location =  locArray[i];
                 found = true;
                 break;
