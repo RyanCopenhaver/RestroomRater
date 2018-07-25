@@ -42,7 +42,6 @@ export class UserLoginComponent implements OnInit {
     this.afAuth.authState.subscribe(user => {
 
       if (user) {
-        console.log(user);
         // added by Ryan to check login when app is first loaded for navigation purposes
         sessionStorage.setItem("loggedIn", "true");
         sessionStorage.setItem('userName',user.displayName);
@@ -58,7 +57,6 @@ export class UserLoginComponent implements OnInit {
   )};
 
   updateUser() {
-    console.log('updateUser',this.currentUser);
     //add userInfo to database
     this.repo.saveUser(this.currentUser);//new User(this.user.toJSON()['email'],this.user.toJSON()['displayName'],this.user.uid));
   }

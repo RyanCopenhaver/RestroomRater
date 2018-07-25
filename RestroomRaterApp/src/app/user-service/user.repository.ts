@@ -29,10 +29,8 @@ export class UserRepository {
     //Save user to firebase database
     saveUser(user: any) {
 
-        console.log('Adding user');
         if (user != undefined) {
             this.upsert(user);
-    
         }
     }
     //delete user from firebase database
