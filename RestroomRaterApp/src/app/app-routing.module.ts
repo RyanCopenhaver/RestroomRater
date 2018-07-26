@@ -6,6 +6,7 @@ import { UserLoginComponent } from './user-login/user-login.component';
 import {HomeComponent} from "./home/home.component";
 import {ReviewSearchComponent} from "./review-search/review-search.component";
 import {ReviewFormComponent} from "./review-form/review-form.component";
+import {UserReviewComponent} from "./user-review/user-review.component";
 
 // Routes
 const appRoutes: Routes = [
@@ -20,6 +21,9 @@ const appRoutes: Routes = [
  },
  {
      path: 'login', component: UserLoginComponent,
+ },
+ {
+     path: 'user-reviews', component: UserReviewComponent,
  },
  {
      path: '**', redirectTo: 'login'
