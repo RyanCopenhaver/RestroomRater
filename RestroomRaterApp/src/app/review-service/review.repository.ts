@@ -2,14 +2,23 @@ import { Injectable } from "@angular/core";
 //import { Observable } from "rxjs/Observable";
 import { Review } from "../models/review";
 import { AngularFireDatabase } from 'angularfire2/database';
+import { Observable } from "../../../node_modules/rxjs";
 //Repo that has all CRUD operatoins for Restroom Ratings
 
 @Injectable()
 export class ReviewRepository {
     private reviews: any[];
+    private userReviews :any[];
+    
     private loaded: boolean = false;
 
-    constructor(private dataSource: AngularFireDatabase) { }
+    constructor(private dataSource: AngularFireDatabase) {
+
+      //  let userId = sessionStorage.getItem('userId');
+        this.loadReviews();
+ 
+     }
+     
 
     loadReviews() {
         this.loaded = true;
@@ -36,12 +45,7 @@ export class ReviewRepository {
         this.dataSource.database.ref("Reviews").remove(review);
 
     }
-    //update review from firebase database
-    updateReview(review: any) {
-        // this.dataSource.object('/Reviews/' + review.$key).update(review);
-        this.dataSource.database.ref("Reviews").update(review);
-
-    }
+  
 
    
 
