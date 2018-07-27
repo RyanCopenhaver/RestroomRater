@@ -1,19 +1,11 @@
+<!--TODO: Display Review Name/Description/Location String-->
 <main role="main" class="container-fluid">
   <h2 class="text-center text-bold">My Reviews</h2>
-  <!--<hr class="scheme-line">-->
-  <!--Show search results if array has at least one value-->
-  <!--<div *ngIf="testReviews.length > 0">-->
     <!--For loop for reviews-->
-    <div *ngFor="let result of testReviews" class="col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3">
+    <div *ngFor="let review of userReviews" class="col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3">
       <hr class="scheme-line">
-      <div><span class="text-bold">User ID:</span> {{ result.userId }}</div>
-      <div><span class="text-bold">Cleanliness:</span> {{ result.cleanlinessRating }}</div>
-      <div><span class="text-bold">Overall:</span> {{ result.rating }}</div>
+      <div><span class="text-bold">User ID:</span> {{ review.userId }}</div>
+      <div><span class="text-bold">Cleanliness:</span> {{ review.cleanlinessRating }}</div>
+      <div><span class="text-bold">Overall:</span> {{ review.rating }}</div>
     </div>
-  <!--</div>-->
-
-
-
-
-
 </main>
