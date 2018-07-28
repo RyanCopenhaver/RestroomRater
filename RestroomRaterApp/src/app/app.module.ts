@@ -30,6 +30,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FooterComponent } from './footer/footer.component';
 import { PlaceInputComponent } from './place-input/place-input.component';
 import { UserReviewComponent } from './user-review/user-review.component';
+import {AgmCoreModule} from '@agm/core';
+import { AgmAutoInputComponent } from './agm-auto-input/agm-auto-input.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,8 @@ import { UserReviewComponent } from './user-review/user-review.component';
     NavigationComponent,
     FooterComponent,
     PlaceInputComponent,
-    UserReviewComponent
+    UserReviewComponent,
+    AgmAutoInputComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +55,10 @@ import { UserReviewComponent } from './user-review/user-review.component';
     AngularFireDatabaseModule,
     FormsModule,
     HttpClientModule,
+    AgmCoreModule.forRoot({
+       apiKey:environment.googleMapsKey,
+       libraries:['places']
+    }),
     AppRouting,
     NgbModule.forRoot(),
   ],

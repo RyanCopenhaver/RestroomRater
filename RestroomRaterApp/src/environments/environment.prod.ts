@@ -9,5 +9,6 @@ export const environment = {
     projectId: "restroomrater-31170",
     storageBucket: "restroomrater-31170.appspot.com",
     messagingSenderId: "718116209290"
-  }
+  },
+  googleMapsKey: Keys.GMAPS_API_KEY
 };
