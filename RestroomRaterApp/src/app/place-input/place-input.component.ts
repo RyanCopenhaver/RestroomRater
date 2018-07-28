@@ -14,6 +14,8 @@ export class PlaceInputComponent implements OnInit {
 
   @ViewChild(LocationComponent) locationComponent;
   possiblePlaces: Place[];
+  descriptionValue: string;
+  addressValue: string;
 
   constructor(private locationService: LocationService) { }
 

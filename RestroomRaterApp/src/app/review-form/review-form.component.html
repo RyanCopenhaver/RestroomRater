@@ -3,52 +3,35 @@
     <h2 class="text-center text-bold">Submit Review</h2>
     <hr class="scheme-line">
 
-    <!--TODO: Validate all user input, especially numerical ones!-->
     <!--RATING FORM-->
     <form #reviewForm="ngForm" (ngSubmit)="onSubmit(reviewForm)">
+        <!--PlaceInputComponent-->
         <app-place-input></app-place-input>
-
-
-        <!--Row group-->
-<!--        <div class="row form-group">
-            &lt;!&ndash;Cleanliness Rating&ndash;&gt;
-            <div class="col-xs-3 col-xs-offset-3">
-                <label for="cleanlinessRating">Cleanliness</label>
-                <input type="number" class="form-control" id="cleanlinessRating" name="cleanlinessRating" min="1" max="5" placeholder="1 - 5" required ngModel>
-            </div>
-
-            &lt;!&ndash;Overall Rating&ndash;&gt;
-            <div class="col-xs-3">
-                <label for="rating">Overall Review</label>
-                <input type="number" class="form-control" id="rating"
-                       name="rating" min="1" max="5" placeholder="1 - 5" required ngModel>
-            </div>
-
-        </div>-->
 
         <!--Cleanliness Radio Buttons-->
         <div class="row form-group text-center">
             <div><label for="cleanlinessRating1">Cleanliness</label></div>
+            <!--1-->
             <div class="form-check form-check-inline">
                 <input type="radio" id="cleanlinessRating1" class="form-radio-input" name="cleanlinessRating" value="1" required ngModel>
                 <label class="form-radio-label" for="cleanlinessRating1">1</label>
             </div>
-
+            <!--2-->
             <div class="form-check form-check-inline">
                 <input type="radio" id="cleanlinessRating2" class="form-radio-input" name="cleanlinessRating" value="2" ngModel>
                 <label class="form-radio-label" for="cleanlinessRating2">2</label>
             </div>
-
+            <!--3-->
             <div class="form-check form-check-inline">
                 <input type="radio" id="cleanlinessRating3" class="form-radio-input" name="cleanlinessRating" value="3" ngModel>
                 <label class="form-radio-label" for="cleanlinessRating3">3</label>
             </div>
-
+            <!--4-->
             <div class="form-check form-check-inline">
                 <input type="radio" id="cleanlinessRating4" class="form-radio-input" name="cleanlinessRating" value="4" ngModel>
                 <label class="form-radio-label" for="cleanlinessRating4">4</label>
             </div>
-
+            <!--5-->
             <div class="form-check form-check-inline">
                 <input type="radio" id="cleanlinessRating5" class="form-radio-input" name="cleanlinessRating" value="5" ngModel>
                 <label class="form-radio-label" for="cleanlinessRating5">5</label>

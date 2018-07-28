@@ -5,6 +5,7 @@ export class Review {
   constructor(
     // TODO: depreciate location once geoLocation is implemented
    // public location: string,
+    public description: string,
     public hasChangingTables: boolean,
     public cleanlinessRating: number,
    // public lat: number,

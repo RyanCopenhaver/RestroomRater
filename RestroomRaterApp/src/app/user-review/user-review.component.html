@@ -1,10 +1,9 @@
-<!--TODO: Display Review Name/Description/Location String-->
 <main role="main" class="container-fluid">
   <h2 class="text-center text-bold">My Reviews</h2>
     <!--For loop for reviews-->
     <div *ngFor="let review of userReviews" class="col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3">
       <hr class="scheme-line">
-      <div><span class="text-bold">User ID:</span> {{ review.userId }}</div>
+      <div><span class="text-bold">Description:</span> {{ review.description }}</div>
       <div><span class="text-bold">Cleanliness:</span> {{ review.cleanlinessRating }}</div>
       <div><span class="text-bold">Overall:</span> {{ review.rating }}</div>
     </div>

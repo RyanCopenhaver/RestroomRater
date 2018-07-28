@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import {Component, OnInit, ViewChild, AfterViewInit, ElementRef} from '@angular/core';
 import {ReviewService} from '../review-service/review.service';
 import {Review} from '../models/review';
 import {ReviewRepository} from "../review-service/review.repository";
@@ -66,8 +66,12 @@ export class ReviewFormComponent implements OnInit {
     let timestamp = Date.now();
     let userId = sessionStorage.getItem("userId");
 
+    // get description value from place input component
+    let description = this.placeInputComponent.descriptionValue;
+
     // create new Review with form values
     this.tempReview = new Review(
+      description,
       hasChangingTables,
       form.value.cleanlinessRating,
       form.value.rating,
@@ -81,8 +85,9 @@ export class ReviewFormComponent implements OnInit {
     this.locations = this.getLocations();
     this.reviews = this.getReviews();
     this.reviewLocationRepo.updateReviewLocations(this.tempReview,this.locations,this.reviews);
-    // reset form
+    // reset form and PlaceInputComponent input values
     form.reset();
+    this.placeInputComponent.descriptionValue = null;
   }
 
 }
