@@ -21,13 +21,6 @@ export class ReviewSearchComponent implements OnInit {
   // load Reviews into array on init
   ngOnInit() {
     this.testReviews = this.getReviews();
-    // TODO: Testing filling array from repository on initial load
-      if (typeof this.testReviews === 'undefined') {
-          console.log("The array is undefined!!!");
-      }
-      else {
-          console.log("Review-Search Reviews has something in it! ");
-      }
   }
 
   /*

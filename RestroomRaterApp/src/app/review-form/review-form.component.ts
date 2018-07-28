@@ -1,5 +1,4 @@
 import {Component, OnInit, ViewChild, AfterViewInit, ElementRef} from '@angular/core';
-import {ReviewService} from '../review-service/review.service';
 import {Review} from '../models/review';
 import {ReviewRepository} from "../review-service/review.repository";
 import { ReviewLocationRepository } from '../review-location-service/review-location.repository';
@@ -10,7 +9,6 @@ import {PlaceInputComponent} from '../place-input/place-input.component';
   templateUrl: './review-form.component.html',
   styleUrls: ['./review-form.component.css']
 })
-// TODO: Possibly remove ReviewService entirely from component
 export class ReviewFormComponent implements OnInit {
 
   tempReview: Review;
