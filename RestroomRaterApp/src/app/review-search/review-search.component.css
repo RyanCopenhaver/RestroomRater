@@ -1,3 +1,8 @@
+label {
+    font-size: 100%;
+    margin-bottom: 0;
+}
+
 /*Button styling*/
 .btn {
     font-size: 110%;
@@ -43,4 +48,23 @@
     margin-top: 2px;
 }
 
+.form-check-inline {
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    padding-left: 0;
+    margin-right: .75rem;
+}
+
+.form-radio-label {
+    margin-top: 8px;
+    margin-right: 5px;
+    margin-left: 2px;
+
+}
+.form-radio-input {
+    height: 15px;
+    width: 15px;
+    border-color: #a1d6e2;
+}
 
