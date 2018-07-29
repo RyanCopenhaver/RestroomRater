@@ -1,3 +1,4 @@
+// Footer component to display footer info and brand
 import { Component, OnInit } from '@angular/core';
 
 @Component({

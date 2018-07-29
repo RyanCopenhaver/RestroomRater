@@ -1,3 +1,4 @@
+// Component for viewing submitted reviews
 import { Component, OnInit } from '@angular/core';
 import {Review} from '../models/review';
 import {ReviewRepository} from "../review-service/review.repository";
@@ -7,7 +8,9 @@ import {ReviewRepository} from "../review-service/review.repository";
   templateUrl: './review-search.component.html',
   styleUrls: ['./review-search.component.css']
 })
+
 export class ReviewSearchComponent implements OnInit {
+
   testReviews: Review[] = [];
   searchResults: Review[] = [];
   searchChanging: boolean;
@@ -16,7 +19,6 @@ export class ReviewSearchComponent implements OnInit {
 
   // inject ReviewRepository
   constructor(public repository: ReviewRepository) { }
-
 
   // load Reviews into array on init
   ngOnInit() {
@@ -31,7 +33,6 @@ export class ReviewSearchComponent implements OnInit {
   getReviews(): Review[] {
     return this.repository.getReviews();
   }
-
 
   /*
   * checkReview()

@@ -47,7 +47,7 @@
 .submit-success {
     color: #1995ad;
 }
-
+/*Radio buttons*/
 .form-check-inline {
     display: inline-flex;
     -webkit-box-align: center;
@@ -55,7 +55,6 @@
     padding-left: 0;
     margin-right: .75rem;
 }
-
 .form-radio-label {
     margin-top: 8px;
     margin-right: 10px;

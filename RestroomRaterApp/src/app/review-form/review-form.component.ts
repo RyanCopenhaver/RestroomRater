@@ -15,12 +15,10 @@ export class ReviewFormComponent implements OnInit {
   tempReview: Review;
   private locations: any[] = [];
   private reviews: Review[] = [];
-
+  // access to child components
   @ViewChild(PlaceInputComponent) placeInputComponent;
   @ViewChild(AgmAutoInputComponent) agmAutoInputComponent;
 
-  
-  //public reviewLocationRepo : ReviewLocationRepository;
   // inject ReviewService and ReviewRepository
   constructor(public repository: ReviewRepository,public reviewLocationRepo : ReviewLocationRepository) { }
 

@@ -1,3 +1,4 @@
+/*Label styling only for this component*/
 label {
     font-size: 100%;
     margin-bottom: 0;
@@ -48,6 +49,7 @@ label {
     margin-top: 2px;
 }
 
+/*Radio button styling*/
 .form-check-inline {
     display: inline-flex;
     -webkit-box-align: center;
@@ -55,7 +57,6 @@ label {
     padding-left: 0;
     margin-right: .75rem;
 }
-
 .form-radio-label {
     margin-top: 8px;
     margin-right: 5px;
@@ -67,4 +68,3 @@ label {
     width: 15px;
     border-color: #a1d6e2;
 }
-

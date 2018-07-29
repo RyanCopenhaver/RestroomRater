@@ -1,3 +1,4 @@
+// Component for landing page after successful login
 import { Component, OnInit } from '@angular/core';
 import { ReviewRepository } from '../review-service/review.repository';
 
