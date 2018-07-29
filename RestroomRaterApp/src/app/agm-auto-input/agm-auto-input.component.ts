@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, NgZone } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, NgZone, Input } from '@angular/core';
 import {MapsAPILoader} from '@agm/core';
 import { } from '../../../node_modules/@agm/core/services/google-maps-types';
 
@@ -9,10 +9,17 @@ import { } from '../../../node_modules/@agm/core/services/google-maps-types';
 })
 export class AgmAutoInputComponent implements OnInit {
 
-  @ViewChild('search') public searchElement: ElementRef;
+  @ViewChild('agmAutoSearch') public searchElement: ElementRef;
+  static agmEstablishment: any;
 
   constructor(private mal: MapsAPILoader, private ngZone: NgZone) {
 
+   }
+   @Input() agmInputValue: string;
+
+    getAgmEstablishment() {
+      this.agmInputValue = this.searchElement.nativeElement.value;
+     return this.agmInputValue;
    }
 
   ngOnInit() {

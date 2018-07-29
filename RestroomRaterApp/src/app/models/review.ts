@@ -14,6 +14,7 @@ export class Review {
     public timestamp: number,
     public userId: string,
     public geoLocation: Location,
+    public establishment: string
     // public place?: Place
   ) { }
 

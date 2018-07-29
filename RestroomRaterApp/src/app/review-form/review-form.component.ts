@@ -3,6 +3,7 @@ import {Review} from '../models/review';
 import {ReviewRepository} from "../review-service/review.repository";
 import { ReviewLocationRepository } from '../review-location-service/review-location.repository';
 import {PlaceInputComponent} from '../place-input/place-input.component';
+import { AgmAutoInputComponent } from '../agm-auto-input/agm-auto-input.component';
 
 @Component({
   selector: 'app-rating-form',
@@ -16,7 +17,9 @@ export class ReviewFormComponent implements OnInit {
   private reviews: Review[] = [];
 
   @ViewChild(PlaceInputComponent) placeInputComponent;
+  @ViewChild(AgmAutoInputComponent) agmAutoInputComponent;
 
+  
   //public reviewLocationRepo : ReviewLocationRepository;
   // inject ReviewService and ReviewRepository
   constructor(public repository: ReviewRepository,public reviewLocationRepo : ReviewLocationRepository) { }
@@ -75,8 +78,9 @@ export class ReviewFormComponent implements OnInit {
       form.value.rating,
       timestamp,
       userId,
-      this.placeInputComponent.getCurrentLocation()
-    );
+      this.placeInputComponent.getCurrentLocation(),
+      this.agmAutoInputComponent.getAgmEstablishment()
+    );//agm-auto-input
 
     // add Review to Repository
     this.repository.saveReview(this.tempReview);

@@ -28,7 +28,7 @@ export class ReviewLocationRepository {
     //Save location to firebase database
     addLocation(review: Review) {
         // console.log(review);
-        this.dataSource.database.ref("Locations").push({ Name: review.geoLocation, AvgRating: review.rating, AvgCleanlinessRating:review.cleanlinessRating });
+        this.dataSource.database.ref("Locations").push({ Name: review.establishment,GeoLocation:review.geoLocation, AvgRating: review.rating, AvgCleanlinessRating:review.cleanlinessRating });
         console.log('New location Added to DB!');
 
         //UpdateAggregateReviews
