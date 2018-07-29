@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, NgZone, Input } from '@angular/core';
 import {MapsAPILoader} from '@agm/core';
-import { } from '../../../node_modules/@agm/core/services/google-maps-types';
+//import { } from 'googlemaps';
 
 @Component({
   selector: 'app-agm-auto-input',
