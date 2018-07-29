@@ -1,15 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,Injectable } from '@angular/core';
+import { Router, CanActivate } from '@angular/router';
+import { UserAuthenticationService } from '../services/user-authentication.service';
 
 @Component({
   selector: 'app-auth-guard',
   templateUrl: './auth-guard.component.html',
   styleUrls: ['./auth-guard.component.css']
 })
-export class AuthGuardComponent implements OnInit {
+@Injectable()
+export class AuthGuard implements  CanActivate  {
 
-  constructor() { }
+  constructor(private router: Router, private authService: UserAuthenticationService) { }
 
-  ngOnInit() {
+  canActivate() {
+    if(this.authService.isAuthenticated()) {
+      return true;
+    }
+    else {
+      this.router.navigate(['/login']);
+      return false;
+    }
+  
   }
 
 }

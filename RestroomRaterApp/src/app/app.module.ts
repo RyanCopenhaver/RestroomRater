@@ -22,7 +22,7 @@ import { UserServiceComponent } from './user-service/user-service.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { AppRouting } from './app-routing.module';
 import { UserAuthenticationService } from './services/user-authentication.service';
-import { AuthGuardComponent } from './auth-guard/auth-guard.component';
+import { AuthGuard } from './auth-guard/auth-guard.component';
 import { UserRepository } from './user-service/user.repository';
 import { NavigationComponent } from './navigation/navigation.component';
 
@@ -43,7 +43,7 @@ import { AgmAutoInputComponent } from './agm-auto-input/agm-auto-input.component
     ReviewSearchComponent,
     UserServiceComponent,
     UserLoginComponent,
-    AuthGuardComponent,
+    AuthGuard,
     NavigationComponent,
     FooterComponent,
     PlaceInputComponent,
@@ -64,7 +64,7 @@ import { AgmAutoInputComponent } from './agm-auto-input/agm-auto-input.component
     NgbModule.forRoot(),
   ],
 
-    providers: [ReviewService, ReviewRepository,ReviewLocationRepository,UserRepository,UserAuthenticationService,AngularFireAuth],
+    providers: [ReviewService, ReviewRepository,ReviewLocationRepository,UserRepository,UserAuthenticationService,AuthGuard,AngularFireAuth],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
