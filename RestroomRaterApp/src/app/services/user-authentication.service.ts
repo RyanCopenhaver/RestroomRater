@@ -2,10 +2,9 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs';
 import * as firebase from 'firebase';
-import { Router } from '../../../node_modules/@angular/router';
+import { Router, CanActivate } from '@angular/router';
 import { UserRepository } from '../user-service/user.repository';
 import { User } from '../models/user';
-import { _getComponentHostLElementNode } from '../../../node_modules/@angular/core/src/render3/instructions';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +15,8 @@ export class UserAuthenticationService {
 
   constructor(private afAuth: AngularFireAuth, private router: Router, private repo: UserRepository) {
     this.authInfo = this.afAuth.authState;
+    console.log(this.authInfo);
+
   }
 
   newUser: User;
@@ -25,15 +26,15 @@ export class UserAuthenticationService {
     this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
       .then((user) => {
 
-        console.log("logged user",user.additionalUserInfo);
         //store loggedIn user userName to database to use as Id
-        sessionStorage.setItem('userName',user.additionalUserInfo.profile.name);
+        sessionStorage.setItem('userName', user.additionalUserInfo.profile.name);
+        sessionStorage.setItem('userLoggedIn', 'true');
 
         if (user.additionalUserInfo.isNewUser) {
-            sessionStorage.setItem('newUser',"true");
+          sessionStorage.setItem('newUser', "true");
         }
         else {
-          sessionStorage.setItem('newUser',"false");
+          sessionStorage.setItem('newUser', "false");
         }
 
       }).catch(
@@ -44,10 +45,18 @@ export class UserAuthenticationService {
 
 
   }
+  isAuthenticated(): boolean {
+    console.log('AuthInfo ' + this.afAuth.idToken);
+
+    return JSON.parse(sessionStorage.getItem('userLoggedIn'));
+  }
+
 
 
   //log user out with google
   logout() {
+    sessionStorage.setItem('userLoggedIn', 'false');
+
     this.afAuth.auth.signOut().then(() => { console.log('logged out') });
   }
 }

@@ -7,23 +7,24 @@ import {HomeComponent} from "./home/home.component";
 import {ReviewSearchComponent} from "./review-search/review-search.component";
 import {ReviewFormComponent} from "./review-form/review-form.component";
 import {UserReviewComponent} from "./user-review/user-review.component";
+import { AuthGuard } from './auth-guard/auth-guard.component';
 
 // Routes
 const appRoutes: Routes = [
  {
-     path: 'home', component: HomeComponent
+     path: 'home', canActivate: [AuthGuard], component: HomeComponent
  },
  {
-     path: 'review', component: ReviewFormComponent
+     path: 'review',canActivate: [AuthGuard], component: ReviewFormComponent
  },
  {
-     path: 'search', component: ReviewSearchComponent,
+     path: 'search',canActivate: [AuthGuard], component: ReviewSearchComponent,
  },
  {
      path: 'login', component: UserLoginComponent,
  },
  {
-     path: 'user-reviews', component: UserReviewComponent,
+     path: 'user-reviews',canActivate: [AuthGuard], component: UserReviewComponent,
  },
  {
      path: '**', redirectTo: 'login'
