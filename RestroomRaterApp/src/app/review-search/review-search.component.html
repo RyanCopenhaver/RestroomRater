@@ -106,6 +106,7 @@
                 <!--For loop for reviews-->
                 <div *ngFor="let result of searchResults">
                     <hr class="scheme-line">
+                    <div><span class="text-bold">Establishment:</span> {{ result.establishment }}</div>
                     <div><span class="text-bold">Description:</span> {{ result.description }}</div>
                     <div><span class="text-bold">Cleanliness:</span> {{ result.cleanlinessRating }}</div>
                     <div><span class="text-bold">Overall:</span> {{ result.rating }}</div>
