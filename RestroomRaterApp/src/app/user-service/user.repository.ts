@@ -53,7 +53,6 @@ export class UserRepository {
         sessionStorage.setItem('userId',user.uid);
 
         if(JSON.parse(sessionStorage.getItem('newUser'))) {
-            console.log('new User');
             this.dataSource.database.ref("Users").push({ email: user.email, displayName: user.displayName, uId: user.uid });
             sessionStorage.setItem('newUser','false');
         }
