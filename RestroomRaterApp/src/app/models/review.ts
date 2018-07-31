@@ -1,4 +1,5 @@
 import { Place } from "./place";
+import { Location } from "./location";
 
 export class Review {
 

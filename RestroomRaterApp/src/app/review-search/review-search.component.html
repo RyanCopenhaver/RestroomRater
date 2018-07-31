@@ -1,6 +1,8 @@
 <!--Page for searching for submitted reviews-->
 <!--Fluid container to help resizing/positioning columns-->
 <main role="main" class="container-fluid">
+        <app-location></app-location>
+
         <!--SEARCH COLUMN-->
         <div class="col-xs-4 search">
             <h3>Preferences</h3>
@@ -102,15 +104,15 @@
         <div class="col-xs-8 results">
             <h2 class="text-center text-bold">Search Reviews</h2>
             <!--Show search results if array has at least one value-->
-            <div *ngIf="searchResults.length > 0">
-                <h3 class="text-center text-bold">Search Results ({{ searchResults.length }})</h3>
+            <div *ngIf="resultsByDistance.length > 0">
+                <h3 class="text-center text-bold">Search Results ({{ resultsByDistance.length }})</h3>
                 <!--For loop for reviews-->
-                <div *ngFor="let result of searchResults">
+                <div *ngFor="let result of resultsByDistance">
                     <hr class="scheme-line">
-                    <div><span class="text-bold">Establishment:</span> {{ result.establishment }}</div>
-                    <div><span class="text-bold">Description:</span> {{ result.description }}</div>
-                    <div><span class="text-bold">Cleanliness:</span> {{ result.cleanlinessRating }}</div>
-                    <div><span class="text-bold">Overall:</span> {{ result.rating }}</div>
+                    <div><span class="text-bold">Establishment:</span> {{ result.review.establishment }}</div>
+                    <div><span class="text-bold">Distance:</span> {{ result.distance }} km</div>
+                    <div><span class="text-bold">Cleanliness:</span> {{ result.review.cleanlinessRating }}</div>
+                    <div><span class="text-bold">Overall:</span> {{ result.review.rating }}</div>
                 </div>
             </div>
         </div>

@@ -1,7 +1,9 @@
 // Component for viewing submitted reviews
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import {Review} from '../models/review';
+import {Location} from '../models/location';
 import {ReviewRepository} from "../review-service/review.repository";
+import {LocationComponent} from '../location/location.component'
 
 @Component({
   selector: 'app-review-search',
@@ -11,8 +13,10 @@ import {ReviewRepository} from "../review-service/review.repository";
 
 export class ReviewSearchComponent implements OnInit {
 
+  @ViewChild(LocationComponent) locationComponent;
   testReviews: Review[] = [];
   searchResults: Review[] = [];
+  resultsByDistance: DistanceFromUser[] =[];
   searchChanging: boolean;
   searchCleanliness: number;
   searchRating: number;
@@ -55,6 +59,57 @@ export class ReviewSearchComponent implements OnInit {
     return false;
   }
 
+
+  // Uses the haversine formula to calculate the distance from the users current location to the location of the review
+  calculateDistanceFromUser(reviews: Review[]): DistanceFromUser[] {
+    // get user's current location
+    let currentLocation = this.locationComponent.currentLocation;
+    let userLat = currentLocation.lat;
+    let userLng = currentLocation.lng;
+    const earthRadius = 6371e3; // metres
+    let distances: DistanceFromUser[] = [];
+
+    for (let review of reviews) {
+      if(review.geoLocation.lat && review.geoLocation.lng){
+        let reviewLat = review.geoLocation.lat;
+        let reviewLng = review.geoLocation.lng;
+
+        // haversine formula
+        let φ1 = this.toRadians(userLat);
+        let φ2 = this.toRadians(reviewLat);
+        let Δφ = this.toRadians(reviewLat-userLat);
+        let Δλ = this.toRadians(reviewLng-userLng);
+
+        let a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
+                Math.cos(φ1) * Math.cos(φ2) *
+                Math.sin(Δλ/2) * Math.sin(Δλ/2);
+        let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+
+        let distInM = earthRadius * c;
+        let distInKM = Math.round(distInM / 100) / 10;
+
+        console.log(distInM);
+        console.log(typeof distInM);
+
+        console.log(distInKM);
+        console.log(typeof distInKM);
+
+        distances.push({review: review, distance: distInKM});
+      } else {
+        distances.push({review: review});
+      }
+    }
+
+    // sort by distance
+    distances.sort(function(a, b){return a.distance - b.distance});
+
+    return distances;
+  }
+
+  toRadians(degrees) {
+  	return degrees * Math.PI / 180;
+  }
+
   /*
   * onSubmit()
   * gets user input values
@@ -81,8 +136,15 @@ export class ReviewSearchComponent implements OnInit {
       review => this.checkReview(this.searchChanging,
         this.searchCleanliness, this.searchRating, review));
 
+    this.resultsByDistance = this.calculateDistanceFromUser(this.searchResults);
+
     // reset form
     form.reset();
   }
 
+}
+
+interface DistanceFromUser {
+    review: Review;
+    distance?: number;
 }
