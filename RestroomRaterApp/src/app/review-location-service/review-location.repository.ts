@@ -29,7 +29,6 @@ export class ReviewLocationRepository {
     addLocation(review: Review) {
         // console.log(review);
         this.dataSource.database.ref("Locations").push({ Name: review.establishment,GeoLocation:review.geoLocation, AvgRating: review.rating, AvgCleanlinessRating:review.cleanlinessRating });
-        console.log('New location Added to DB!');
 
         //UpdateAggregateReviews
     }
@@ -99,7 +98,6 @@ export class ReviewLocationRepository {
 
         location.AvgRating = avgOverallRating.toFixed(2);
         location.AvgCleanlinessRating = avgOverallCRating.toFixed(2);
-        console.log('avg',avgOverallRating);
         this.updateLocation(location);
     }
 

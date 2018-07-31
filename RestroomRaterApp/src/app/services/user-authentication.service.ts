@@ -46,7 +46,6 @@ export class UserAuthenticationService {
 
   }
   isAuthenticated(): boolean {
-    console.log('AuthInfo ' + this.afAuth.idToken);
 
     return JSON.parse(sessionStorage.getItem('userLoggedIn'));
   }
