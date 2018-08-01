@@ -79,7 +79,7 @@
         </div>
 
         <!--Submit Button-->
-        <div class="row text-center">
+        <div class="row text-center mb-20">
             <button class="btn mt-10" type="submit" [disabled]="!reviewForm.form.valid">Submit</button>
         </div>
 
@@ -87,7 +87,7 @@
     <!--END FORM-->
 
     <!--If submit successful-->
-    <div *ngIf="tempReview != null">
+    <div *ngIf="tempReview != null" class="mb-10">
         <h3 class="submit-success text-center">Your Rating Has Been Submitted!</h3>
     </div>
 
