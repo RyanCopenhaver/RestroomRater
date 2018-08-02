@@ -88,7 +88,6 @@ export class ReviewFormComponent implements OnInit {
     // reset form and PlaceInputComponent input values
     form.reset();
     this.placeInputComponent.descriptionValue = null;
-    this.placeInputComponent.addressValue = null;
   }
 
 }
