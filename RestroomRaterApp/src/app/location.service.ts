@@ -34,8 +34,8 @@ export class LocationService {
   };
 
   callLocationApiWithAddress(address: string){
-    address.replace(new RegExp(' ', 'g'), '+');
-    this.geocodingUrl.replace('ADDRESS', address);
+    address = address.replace(new RegExp(' ', 'g'), '+');
+    this.geocodingUrl = this.geocodingUrl.replace('ADDRESS', address);
 
     return this.http.get(this.geocodingUrl);
   }
