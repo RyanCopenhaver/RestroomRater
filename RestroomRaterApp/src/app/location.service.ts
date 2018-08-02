@@ -12,10 +12,12 @@ export class LocationService {
 
   private gmapsPostUrl: string;
   private gPlacePostUrl: string;
+  private geocodingUrl: string
 
   constructor(private http: HttpClient) {
     this.gmapsPostUrl = "https://www.googleapis.com/geolocation/v1/geolocate?key=" + Keys.GMAPS_API_KEY;
     this.gPlacePostUrl = "https://maps.googleapis.com/maps/api/place/autocomplete/xml?";
+    this.geocodingUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=ADDRESS&key=" + Keys.GMAPS_API_KEY;
   }
 
   // TODO: add default values?
@@ -29,6 +31,13 @@ export class LocationService {
     currentPostUrl += "&radius=500&key=" + Keys.GMAPS_API_KEY;
 
     return this.http.post<GPlaceResponse>(currentPostUrl, null);
+  };
+
+  callLocationApiWithAddress(address: string){
+    address.replace(new RegExp(' ', 'g'), '+');
+    this.geocodingUrl.replace('ADDRESS', address);
+
+    return this.http.get(this.geocodingUrl);
   }
 }
 

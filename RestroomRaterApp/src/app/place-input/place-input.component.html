@@ -1,19 +1,1 @@
-<app-location></app-location>
 
-<div class="row form-group">
-
-
-    <div class="col-xs-8 col-xs-offset-2">
-        <label for="Description">Description/Comments</label>
-        <input type="text" class="form-control mdb-autocomplete" #description id="Description" name="Description" required [(ngModel)]="descriptionValue">
-    </div>
-
-</div>
-
-<div class = "row">
-  <ul>
-    <li *ngFor="let place of possiblePlaces">
-      {{ place.description }}
-    </li>
-  </ul>
-</div>

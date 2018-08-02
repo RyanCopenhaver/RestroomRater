@@ -1,4 +1,7 @@
 <main role="main" class="container">
+  <!--LocationComponent-->
+  <app-location></app-location>
+
     <!--TITLE-->
     <h2 class="text-center text-bold">Submit Review</h2>
     <hr class="scheme-line">
@@ -6,9 +9,14 @@
     <!--RATING FORM-->
     <form #reviewForm="ngForm" (ngSubmit)="onSubmit(reviewForm)">
         <!--AGM Auto Input Form-->
-        <app-agm-auto-input></app-agm-auto-input>
-        <!--PlaceInputComponent-->
-        <app-place-input></app-place-input>
+        <app-agm-auto-input (change)=updateGeolocation($event)></app-agm-auto-input>
+
+        <div class="row form-group">
+          <div class="col-xs-8 col-xs-offset-2">
+              <label for="Description">Description/Comments</label>
+              <input type="text" class="form-control mdb-autocomplete" #description id="Description" name="Description" required ngModel>
+          </div>
+        </div>
 
         <!--Cleanliness Radio Buttons-->
         <div class="row form-group text-center">

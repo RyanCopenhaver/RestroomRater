@@ -88,12 +88,6 @@ export class ReviewSearchComponent implements OnInit {
         let distInM = earthRadius * c;
         let distInKM = Math.round(distInM / 100) / 10;
 
-        console.log(distInM);
-        console.log(typeof distInM);
-
-        console.log(distInKM);
-        console.log(typeof distInKM);
-
         distances.push({review: review, distance: distInKM});
       } else {
         distances.push({review: review});

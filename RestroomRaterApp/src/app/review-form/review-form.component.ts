@@ -2,7 +2,7 @@ import {Component, OnInit, ViewChild, AfterViewInit, ElementRef} from '@angular/
 import {Review} from '../models/review';
 import {ReviewRepository} from "../review-service/review.repository";
 import { ReviewLocationRepository } from '../review-location-service/review-location.repository';
-import {PlaceInputComponent} from '../place-input/place-input.component';
+import {LocationComponent} from '../location/location.component';
 import { AgmAutoInputComponent } from '../agm-auto-input/agm-auto-input.component';
 
 @Component({
@@ -16,7 +16,7 @@ export class ReviewFormComponent implements OnInit {
   private locations: any[] = [];
   private reviews: Review[] = [];
   // access to child components
-  @ViewChild(PlaceInputComponent) placeInputComponent;
+  @ViewChild(LocationComponent) LocationComponent;
   @ViewChild(AgmAutoInputComponent) agmAutoInputComponent;
 
   // inject ReviewService and ReviewRepository
@@ -45,6 +45,12 @@ export class ReviewFormComponent implements OnInit {
     return this.reviewLocationRepo.getLocations();
   }
 
+  updateGeolocation(event){
+    if((this.agmAutoInputComponent.getAgmEstablishment() != "") || (this.agmAutoInputComponent.getAgmEstablishment() != null)){
+      this.LocationComponent.updateLocationByAddress(this.agmAutoInputComponent.getAgmEstablishment())
+    }
+  }
+
   /*
   onSubmit() adds value of form
   as a Review object to the reviews array
@@ -65,18 +71,15 @@ export class ReviewFormComponent implements OnInit {
     let timestamp = Date.now();
     let userId = sessionStorage.getItem("userId");
 
-    // get description value from place input component
-    let description = this.placeInputComponent.descriptionValue;
-
     // create new Review with form values
     this.tempReview = new Review(
-      description,
+      form.value.Description,
       hasChangingTables,
       form.value.cleanlinessRating,
       form.value.rating,
       timestamp,
       userId,
-      this.placeInputComponent.getCurrentLocation(),
+      this.LocationComponent.currentLocation,
       this.agmAutoInputComponent.getAgmEstablishment()
     );//agm-auto-input
 
@@ -85,9 +88,7 @@ export class ReviewFormComponent implements OnInit {
     this.locations = this.getLocations();
     this.reviews = this.getReviews();
     this.reviewLocationRepo.updateReviewLocations(this.tempReview,this.locations,this.reviews);
-    // reset form and PlaceInputComponent input values
     form.reset();
-    this.placeInputComponent.descriptionValue = null;
   }
 
 }
