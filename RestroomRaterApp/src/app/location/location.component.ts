@@ -20,7 +20,7 @@ export class LocationComponent implements OnInit {
   updateLocationByAddress(address: string){
     this.locationService.callLocationApiWithAddress(address).subscribe(res => {
       console.log(res);
-      this.currentLocation = new Location(res.results[0].geometry.location.lat, res.results[0].geometry.location.lng, 0);
+    this.currentLocation = new Location(res['results'][0].geometry.location.lat, res['results'][0].geometry.location.lng, 0);
     })
   }
 
