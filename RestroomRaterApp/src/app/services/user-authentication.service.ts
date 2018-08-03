@@ -27,7 +27,7 @@ export class UserAuthenticationService {
       .then((user) => {
 
         //store loggedIn user userName to database to use as Id
-        sessionStorage.setItem('userName', user.additionalUserInfo.profile.name);
+        sessionStorage.setItem('userName', user.additionalUserInfo.profile['name']);
         sessionStorage.setItem('userLoggedIn', 'true');
 
         if (user.additionalUserInfo.isNewUser) {
