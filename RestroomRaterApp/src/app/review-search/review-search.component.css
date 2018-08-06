@@ -68,3 +68,12 @@ label {
     width: 15px;
     border-color: #a1d6e2;
 }
+
+agm-map {
+    height: 400px;
+}
+.mapModalLink {
+    color: #1995ad;
+    cursor: pointer;
+    font-weight: bold;
+}

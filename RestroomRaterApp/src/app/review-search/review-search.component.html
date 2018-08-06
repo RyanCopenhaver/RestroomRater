@@ -1,120 +1,165 @@
 <!--Page for searching for submitted reviews-->
 <!--Fluid container to help resizing/positioning columns-->
 <main role="main" class="container-fluid">
-        <app-location></app-location>
+    <app-location></app-location>
 
-        <!--SEARCH COLUMN-->
-        <div class="col-xs-4 search">
-            <h3>Preferences</h3>
+    <!--SEARCH COLUMN-->
+    <div class="col-xs-4 search">
+        <h3>Preferences</h3>
 
-            <!--RATING FORM-->
-            <form #searchForm="ngForm" (ngSubmit)="onSubmit(searchForm)">
+        <!--RATING FORM-->
+        <form #searchForm="ngForm" (ngSubmit)="onSubmit(searchForm)">
 
-                <!--Cleanliness Radio Buttons-->
-                <div class="form-group">
-                    <div><label for="cleanlinessRating1">Minimum Cleanliness</label></div>
-                    <!--1-->
-                    <div class="form-check form-check-inline">
-                        <input type="radio" id="cleanlinessRating1" class="form-radio-input" name="cleanlinessRating" value="1" required ngModel>
-                        <label class="form-radio-label" for="cleanlinessRating1">1</label>
-                    </div>
-                    <!--2-->
-                    <div class="form-check form-check-inline">
-                        <input type="radio" id="cleanlinessRating2" class="form-radio-input" name="cleanlinessRating" value="2" ngModel>
-                        <label class="form-radio-label" for="cleanlinessRating2">2</label>
-                    </div>
-                    <!--3-->
-                    <div class="form-check form-check-inline">
-                        <input type="radio" id="cleanlinessRating3" class="form-radio-input" name="cleanlinessRating" value="3" ngModel>
-                        <label class="form-radio-label" for="cleanlinessRating3">3</label>
-                    </div>
-                    <!--4-->
-                    <div class="form-check form-check-inline">
-                        <input type="radio" id="cleanlinessRating4" class="form-radio-input" name="cleanlinessRating" value="4" ngModel>
-                        <label class="form-radio-label" for="cleanlinessRating4">4</label>
-                    </div>
-                    <!--5-->
-                    <div class="form-check form-check-inline">
-                        <input type="radio" id="cleanlinessRating5" class="form-radio-input" name="cleanlinessRating" value="5" ngModel>
-                        <label class="form-radio-label" for="cleanlinessRating5">5</label>
-                    </div>
-                </div>
-
-                <!--Overall Rating Radio Buttons-->
-                <div class="form-group">
-                    <div><label for="rating1">Minimum Rating</label></div>
-                    <div class="form-check form-check-inline">
-                        <input type="radio" id="rating1" class="form-radio-input" name="rating" value="1" required ngModel>
-                        <label class="form-radio-label" for="rating1">1</label>
-                    </div>
-
-                    <div class="form-check form-check-inline">
-                        <input type="radio" id="rating2" class="form-radio-input" name="rating" value="2" ngModel>
-                        <label class="form-radio-label" for="rating2">2</label>
-                    </div>
-
-                    <div class="form-check form-check-inline">
-                        <input type="radio" id="rating3" class="form-radio-input" name="rating" value="3" ngModel>
-                        <label class="form-radio-label" for="rating3">3</label>
-                    </div>
-
-                    <div class="form-check form-check-inline">
-                        <input type="radio" id="rating4" class="form-radio-input" name="rating" value="4" ngModel>
-                        <label class="form-radio-label" for="rating4">4</label>
-                    </div>
-
-                    <div class="form-check form-check-inline">
-                        <input type="radio" id="rating5" class="form-radio-input" name="rating" value="5" ngModel>
-                        <label class="form-radio-label" for="rating5">5</label>
-                    </div>
-                </div>
-
-
-
-
-
-                <!--Changing Tables Checkbox-->
-                <div class="form-check form-group">
-                    <input type="checkbox" id="hasChangingTables" class="form-check-input" name="hasChangingTables" ngModel>
-                    <label for="hasChangingTables" class="form-check-label">Changing Table</label>
-                </div>
-
-                <!--Submit Button-->
+            <!--Cleanliness Radio Buttons-->
+            <div class="form-group">
                 <div>
-                    <button class="btn mt-10" type="submit" [disabled]="!searchForm.form.valid">Search</button>
+                    <label for="cleanlinessRating1">Minimum Cleanliness</label>
                 </div>
-
-            </form>
-            <!--END FORM-->
-
-            <!--Show search preferences if populated-->
-            <div *ngIf="searchRating != null">
-                <hr>
-                <h3>Your Preferences</h3>
-                <div *ngIf="searchChanging"><span class="text-bold">Changing Table:</span> Yes</div>
-                <div *ngIf="!searchChanging"><span class="text-bold">Changing Table:</span> No</div>
-                <div><span class="text-bold">Minimum Cleanliness:</span> {{ searchCleanliness }}</div>
-                <div><span class="text-bold">Minimum Overall Rating:</span> {{ searchRating }}</div>
-            </div>
-
-        </div>
-        <!--END SEARCH COLUMN-->
-
-        <!--SEARCH RESULTS-->
-        <div class="col-xs-8 results">
-            <h2 class="text-center text-bold">Search Reviews</h2>
-            <!--Show search results if array has at least one value-->
-            <div *ngIf="resultsByDistance.length > 0">
-                <h3 class="text-center text-bold">Search Results ({{ resultsByDistance.length }})</h3>
-                <!--For loop for reviews-->
-                <div *ngFor="let result of resultsByDistance">
-                    <hr class="scheme-line">
-                    <div><span class="text-bold">Establishment:</span> {{ result.review.establishment }}</div>
-                    <div><span class="text-bold">Distance:</span> {{ result.distance }} km</div>
-                    <div><span class="text-bold">Cleanliness:</span> {{ result.review.cleanlinessRating }}</div>
-                    <div><span class="text-bold">Overall:</span> {{ result.review.rating }}</div>
+                <!--1-->
+                <div class="form-check form-check-inline">
+                    <input type="radio" id="cleanlinessRating1" class="form-radio-input" name="cleanlinessRating" value="1" required ngModel>
+                    <label class="form-radio-label" for="cleanlinessRating1">1</label>
+                </div>
+                <!--2-->
+                <div class="form-check form-check-inline">
+                    <input type="radio" id="cleanlinessRating2" class="form-radio-input" name="cleanlinessRating" value="2" ngModel>
+                    <label class="form-radio-label" for="cleanlinessRating2">2</label>
+                </div>
+                <!--3-->
+                <div class="form-check form-check-inline">
+                    <input type="radio" id="cleanlinessRating3" class="form-radio-input" name="cleanlinessRating" value="3" ngModel>
+                    <label class="form-radio-label" for="cleanlinessRating3">3</label>
+                </div>
+                <!--4-->
+                <div class="form-check form-check-inline">
+                    <input type="radio" id="cleanlinessRating4" class="form-radio-input" name="cleanlinessRating" value="4" ngModel>
+                    <label class="form-radio-label" for="cleanlinessRating4">4</label>
+                </div>
+                <!--5-->
+                <div class="form-check form-check-inline">
+                    <input type="radio" id="cleanlinessRating5" class="form-radio-input" name="cleanlinessRating" value="5" ngModel>
+                    <label class="form-radio-label" for="cleanlinessRating5">5</label>
                 </div>
             </div>
+
+            <!--Overall Rating Radio Buttons-->
+            <div class="form-group">
+                <div>
+                    <label for="rating1">Minimum Rating</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" id="rating1" class="form-radio-input" name="rating" value="1" required ngModel>
+                    <label class="form-radio-label" for="rating1">1</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input type="radio" id="rating2" class="form-radio-input" name="rating" value="2" ngModel>
+                    <label class="form-radio-label" for="rating2">2</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input type="radio" id="rating3" class="form-radio-input" name="rating" value="3" ngModel>
+                    <label class="form-radio-label" for="rating3">3</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input type="radio" id="rating4" class="form-radio-input" name="rating" value="4" ngModel>
+                    <label class="form-radio-label" for="rating4">4</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input type="radio" id="rating5" class="form-radio-input" name="rating" value="5" ngModel>
+                    <label class="form-radio-label" for="rating5">5</label>
+                </div>
+            </div>
+
+
+
+
+
+            <!--Changing Tables Checkbox-->
+            <div class="form-check form-group">
+                <input type="checkbox" id="hasChangingTables" class="form-check-input" name="hasChangingTables" ngModel>
+                <label for="hasChangingTables" class="form-check-label">Changing Table</label>
+            </div>
+
+            <!--Submit Button-->
+            <div>
+                <button class="btn mt-10" type="submit" [disabled]="!searchForm.form.valid">Search</button>
+            </div>
+
+        </form>
+        <!--END FORM-->
+
+        <!--Show search preferences if populated-->
+        <div *ngIf="searchRating != null">
+            <hr>
+            <h3>Your Preferences</h3>
+            <div *ngIf="searchChanging">
+                <span class="text-bold">Changing Table:</span> Yes</div>
+            <div *ngIf="!searchChanging">
+                <span class="text-bold">Changing Table:</span> No</div>
+            <div>
+                <span class="text-bold">Minimum Cleanliness:</span> {{ searchCleanliness }}</div>
+            <div>
+                <span class="text-bold">Minimum Overall Rating:</span> {{ searchRating }}</div>
         </div>
+
+    </div>
+    <!--END SEARCH COLUMN-->
+
+    <!--SEARCH RESULTS-->
+    <div class="modal" tabindex="-1" id='agmMapModal' role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <!-- <h5 class="modal-title">Modal title</h5>-->
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <agm-map [latitude]="mapModalLat" [longitude]="mapModalLong" [zoom]='mapZoom'>
+                        <agm-marker *ngFor="let coordinate of coordinates; let i=index" [latitude]="coordinate.lat" [longitude]="coordinate.lng">
+                            <agm-info-window [isOpen]="true">
+                                <h5>{{coordinate.location}}</h5>
+                            </agm-info-window>
+                        </agm-marker>
+                        <agm-polyline [visible]="true" [strokeWeight]="3">
+                            <agm-polyline-point *ngFor="let coordinate of coordinates; let i=index" [latitude]="coordinate.lat" [longitude]="coordinate.lng">
+
+                            </agm-polyline-point>
+                        </agm-polyline>
+
+                    </agm-map>
+                </div>
+                <!--   <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>-->
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-8 results">
+        <h2 class="text-center text-bold">Search Reviews</h2>
+        <!--Show search results if array has at least one value-->
+        <div *ngIf="resultsByDistance.length > 0">
+            <h3 class="text-center text-bold">Search Results ({{ resultsByDistance.length }})</h3>
+            <!--For loop for reviews-->
+            <div *ngFor="let result of resultsByDistance">
+                <hr class="scheme-line">
+                <div>
+                    <span class="text-bold">Establishment:</span> {{ result.review.establishment }}</div>
+                <div (click)='mapLocation(result)' data-toggle="modal" data-target="#agmMapModal" class='mapModalLink'>
+                    <span class="text-bold">Distance:</span> {{ result.distance }} km</div>
+                <div>
+                    <span class="text-bold">Cleanliness:</span> {{ result.review.cleanlinessRating }}</div>
+                <div>
+                    <span class="text-bold">Overall:</span> {{ result.review.rating }}</div>
+            </div>
+        </div>
+    </div>
+
+
 </main>
 <!--END MAIN-->

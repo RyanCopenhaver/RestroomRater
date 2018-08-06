@@ -1,9 +1,10 @@
 // Component for viewing submitted reviews
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import {Review} from '../models/review';
-import {Location} from '../models/location';
-import {ReviewRepository} from "../review-service/review.repository";
-import {LocationComponent} from '../location/location.component'
+import { Review } from '../models/review';
+import { Location } from '../models/location';
+import { ReviewRepository } from "../review-service/review.repository";
+import { LocationComponent } from '../location/location.component'
+import { AgmMap } from '@agm/core';
 
 @Component({
   selector: 'app-review-search',
@@ -16,10 +17,20 @@ export class ReviewSearchComponent implements OnInit {
   @ViewChild(LocationComponent) locationComponent;
   testReviews: Review[] = [];
   searchResults: Review[] = [];
-  resultsByDistance: DistanceFromUser[] =[];
+  resultsByDistance: DistanceFromUser[] = [];
   searchChanging: boolean;
   searchCleanliness: number;
   searchRating: number;
+  mapModalLat: number;
+  mapModalLong: number;
+  userCurrentLocationLat: number;
+  userCurrentLocationLong: number;
+  coordinates: any[];
+  mapZoom: number;
+
+
+  @ViewChild(AgmMap) public agmMap: AgmMap;
+
 
   // inject ReviewRepository
   constructor(public repository: ReviewRepository) { }
@@ -27,6 +38,8 @@ export class ReviewSearchComponent implements OnInit {
   // load Reviews into array on init
   ngOnInit() {
     this.testReviews = this.getReviews();
+    this.agmMap.triggerResize();
+
   }
 
   /*
@@ -70,38 +83,59 @@ export class ReviewSearchComponent implements OnInit {
     let distances: DistanceFromUser[] = [];
 
     for (let review of reviews) {
-      if(review.geoLocation.lat && review.geoLocation.lng){
+      if (review.geoLocation.lat && review.geoLocation.lng) {
         let reviewLat = review.geoLocation.lat;
         let reviewLng = review.geoLocation.lng;
 
         // haversine formula
         let φ1 = this.toRadians(userLat);
         let φ2 = this.toRadians(reviewLat);
-        let Δφ = this.toRadians(reviewLat-userLat);
-        let Δλ = this.toRadians(reviewLng-userLng);
+        let Δφ = this.toRadians(reviewLat - userLat);
+        let Δλ = this.toRadians(reviewLng - userLng);
 
-        let a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
-                Math.cos(φ1) * Math.cos(φ2) *
-                Math.sin(Δλ/2) * Math.sin(Δλ/2);
-        let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        let a = Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
+          Math.cos(φ1) * Math.cos(φ2) *
+          Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
+        let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
         let distInM = earthRadius * c;
         let distInKM = Math.round(distInM / 100) / 10;
 
-        distances.push({review: review, distance: distInKM});
+        distances.push({ review: review, distance: distInKM });
       } else {
-        distances.push({review: review});
+        distances.push({ review: review });
       }
     }
 
     // sort by distance
-    distances.sort(function(a, b){return a.distance - b.distance});
+    distances.sort(function (a, b) { return a.distance - b.distance });
 
     return distances;
   }
 
+  //display google map with markers showing the users current location and the location of the clicked review
+  mapLocation(rev) {
+    this.coordinates = [];
+    this.userCurrentLocationLat = this.locationComponent.currentLocation.lat;
+    this.userCurrentLocationLong = this.locationComponent.currentLocation.lng;
+    this.mapZoom = 15;
+    //this.resultsByDistance.distance
+    this.mapModalLat = rev.review.geoLocation.lat;
+    this.mapModalLong = rev.review.geoLocation.lng;
+    var estName = rev.review.establishment.substring(0, rev.review.establishment.indexOf(','));
+    this.coordinates.push({ lat: this.mapModalLat, lng: this.mapModalLong, location: estName });
+    this.coordinates.push({ lat: this.userCurrentLocationLat, lng: this.userCurrentLocationLong, location: 'You are Here' });
+
+
+
+    console.log(this.mapModalLat, this.mapModalLong);
+  }
+  onChoseLocation(event) {
+
+  }
+  labelOptions = { color: '#1995ad' }
   toRadians(degrees) {
-  	return degrees * Math.PI / 180;
+    return degrees * Math.PI / 180;
   }
 
   /*
@@ -139,6 +173,6 @@ export class ReviewSearchComponent implements OnInit {
 }
 
 interface DistanceFromUser {
-    review: Review;
-    distance?: number;
+  review: Review;
+  distance?: number;
 }
