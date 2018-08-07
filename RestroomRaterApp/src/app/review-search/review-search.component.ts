@@ -27,7 +27,7 @@ export class ReviewSearchComponent implements OnInit {
   userCurrentLocationLong: number;
   coordinates: any[];
   mapZoom: number;
-
+  strokeColor: string;
 
   @ViewChild(AgmMap) public agmMap: AgmMap;
 
@@ -125,6 +125,7 @@ export class ReviewSearchComponent implements OnInit {
     var estName = rev.review.establishment.substring(0, rev.review.establishment.indexOf(','));
     this.coordinates.push({ lat: this.mapModalLat, lng: this.mapModalLong, location: estName });
     this.coordinates.push({ lat: this.userCurrentLocationLat, lng: this.userCurrentLocationLong, location: 'You are Here' });
+    this.strokeColor = '#1995ad';
 
 
 

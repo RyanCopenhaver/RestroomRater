@@ -121,11 +121,11 @@
                 <div class="modal-body">
                     <agm-map [latitude]="mapModalLat" [longitude]="mapModalLong" [zoom]='mapZoom'>
                         <agm-marker *ngFor="let coordinate of coordinates; let i=index" [latitude]="coordinate.lat" [longitude]="coordinate.lng">
-                            <agm-info-window [isOpen]="true">
+                            <agm-info-window [isOpen]="true" >
                                 <h5>{{coordinate.location}}</h5>
                             </agm-info-window>
                         </agm-marker>
-                        <agm-polyline [visible]="true" [strokeWeight]="3">
+                        <agm-polyline [visible]="true" [strokeWeight]="3" [strokeColor]='strokeColor'>
                             <agm-polyline-point *ngFor="let coordinate of coordinates; let i=index" [latitude]="coordinate.lat" [longitude]="coordinate.lng">
 
                             </agm-polyline-point>
