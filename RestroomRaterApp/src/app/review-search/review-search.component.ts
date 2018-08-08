@@ -27,6 +27,8 @@ export class ReviewSearchComponent implements OnInit {
   userCurrentLocationLong: number;
   coordinates: any[];
   mapZoom: number;
+  mapCenter: string;
+
   strokeColor: string;
 
   @ViewChild(AgmMap) public agmMap: AgmMap;
@@ -38,8 +40,6 @@ export class ReviewSearchComponent implements OnInit {
   // load Reviews into array on init
   ngOnInit() {
     this.testReviews = this.getReviews();
-    this.agmMap.triggerResize();
-
   }
 
   /*
@@ -118,18 +118,16 @@ export class ReviewSearchComponent implements OnInit {
     this.coordinates = [];
     this.userCurrentLocationLat = this.locationComponent.currentLocation.lat;
     this.userCurrentLocationLong = this.locationComponent.currentLocation.lng;
-    this.mapZoom = 15;
+    this.mapZoom = 8;
     //this.resultsByDistance.distance
     this.mapModalLat = rev.review.geoLocation.lat;
     this.mapModalLong = rev.review.geoLocation.lng;
+
     var estName = rev.review.establishment.substring(0, rev.review.establishment.indexOf(','));
     this.coordinates.push({ lat: this.mapModalLat, lng: this.mapModalLong, location: estName });
     this.coordinates.push({ lat: this.userCurrentLocationLat, lng: this.userCurrentLocationLong, location: 'You are Here' });
+    this.mapCenter = this.coordinates[1].lat + ',' + this.coordinates[1].lng;
     this.strokeColor = '#1995ad';
-
-
-
-    console.log(this.mapModalLat, this.mapModalLong);
   }
   onChoseLocation(event) {
 
