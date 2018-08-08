@@ -77,7 +77,6 @@ export class UserReviewComponent implements OnInit {
          
         for (var i = 0; i < reviews.length; i++) {
             var estName = reviews[i].establishment.substring(0, reviews[i].establishment.indexOf(','));
-              console.log(estName);
             this.coordinates.push({ lat: reviews[i].geoLocation.lat, lng: reviews[i].geoLocation.lng, location: estName });
         }
 
