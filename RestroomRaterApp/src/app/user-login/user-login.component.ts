@@ -26,7 +26,6 @@ export class UserLoginComponent implements OnInit {
    sessionStorage.setItem("loggedIn","true");
    this.loggedIn = JSON.parse(sessionStorage.getItem("loggedIn"));
 
-    console.log('login');
   }
   logout() {
     this.auth.logout();
@@ -34,7 +33,6 @@ export class UserLoginComponent implements OnInit {
    
     this.router.navigateByUrl("/");
 
-    console.log('logout');
   }
   ngOnInit() {
 
@@ -64,7 +62,6 @@ export class UserLoginComponent implements OnInit {
   @ViewChild('logOutBtn') set logOutBtn (v : any) {
     this.loggedIn = JSON.parse(sessionStorage.getItem("loggedIn"));
     this.userName = sessionStorage.getItem('userName');
-    // this.userName = sessionStorage.getItem("userName");
     this.updateUser();
   }
 

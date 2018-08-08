@@ -16,7 +16,6 @@ export class UserRepository {
         this.loaded = true;
         this.dataSource.list('/Users').valueChanges().subscribe(users => {
             this.users = users;
-            // console.log(this.users);
         });
     }
     //Get Ratings in Database

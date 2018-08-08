@@ -16,11 +16,6 @@ export class ReviewService {
     this.reviews.push(review);
   }
 
-  getReviews() {
-
-  }
-
-
   save(review) {
       this.repository.saveReview(review);
   }

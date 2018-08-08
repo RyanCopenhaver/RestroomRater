@@ -1,7 +1,6 @@
 // Component for viewing submitted reviews
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { Review } from '../models/review';
-import { Location } from '../models/location';
 import { ReviewRepository } from "../review-service/review.repository";
 import { LocationComponent } from '../location/location.component'
 import { AgmMap } from '@agm/core';

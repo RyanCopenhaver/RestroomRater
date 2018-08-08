@@ -1,6 +1,5 @@
 // Component for landing page after successful login
 import { Component, OnInit } from '@angular/core';
-import { ReviewRepository } from '../review-service/review.repository';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +8,7 @@ import { ReviewRepository } from '../review-service/review.repository';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private repository: ReviewRepository) { }
+  constructor() { }
 
   ngOnInit() {
   }
