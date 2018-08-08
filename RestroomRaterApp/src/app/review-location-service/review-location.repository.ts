@@ -64,13 +64,11 @@ export class ReviewLocationRepository {
             }
         }
         if (found) {
-            console.log('Existing location found!');
             this.updateLocationAggregateRatings(newReview,location,reviewArray);
         }
-        //Add new Locaiton to database if not found
+        //Add new Location to database if not found
         else {
             //updateLocations(review.Location) 
-            console.log('adding new location');
             this.addLocation(newReview);
 
         }

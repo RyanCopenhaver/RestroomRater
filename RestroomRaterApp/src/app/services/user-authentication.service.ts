@@ -15,7 +15,6 @@ export class UserAuthenticationService {
 
   constructor(private afAuth: AngularFireAuth, private router: Router, private repo: UserRepository) {
     this.authInfo = this.afAuth.authState;
-    console.log(this.authInfo);
 
   }
 
@@ -39,7 +38,6 @@ export class UserAuthenticationService {
 
       }).catch(
         function (obj) {
-          console.log(obj);
         }
       );
 

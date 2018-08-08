@@ -22,13 +22,8 @@ export class UserReviewComponent implements OnInit {
     // load Reviews into array on init
     ngOnInit() {
         this.testReviews = this.getReviews();
-        // if array is undefined
-        if (typeof this.testReviews === 'undefined') {
-            console.log("The array is undefined!!!");
-        }
-        // else load userReviews with matching Reviews from testReviews
-        else {
-            console.log("Something there!");
+        // if array is not undefined
+        if (typeof this.testReviews !== 'undefined') {
             // filter Review objects based on returned value from checkUser()
             this.userReviews = this.testReviews.filter(
                 review => this.checkUser(this.userId, review));
@@ -45,7 +40,7 @@ export class UserReviewComponent implements OnInit {
     }
 
     /*
-    * checUser() tests to see if the
+    * checkUser() tests to see if the
     * userId in a Review object matches
     * the current user of the session
     */
