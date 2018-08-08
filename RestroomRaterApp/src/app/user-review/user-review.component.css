@@ -1,1 +1,9 @@
-
+agm-map {
+    height: 400px;
+}
+.mapModalLink {
+    color: #1995ad;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+}

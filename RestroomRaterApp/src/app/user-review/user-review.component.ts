@@ -1,7 +1,8 @@
 // Component for displaying reviews submitted by current logged in user
-import {Component, OnInit} from '@angular/core';
-import {Review} from '../models/review';
-import {ReviewRepository} from '../review-service/review.repository';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Review } from '../models/review';
+import { ReviewRepository } from '../review-service/review.repository';
+import { AgmMap } from '@agm/core';
 
 @Component({
     selector: 'app-user-review',
@@ -15,6 +16,13 @@ export class UserReviewComponent implements OnInit {
     userReviews: Review[] = [];
     // get current user id from session storage
     userId: string = sessionStorage.getItem('userId');
+    mapModalLat: number;
+    mapModalLong: number;
+    userCurrentLocationLat: number;
+    userCurrentLocationLong: number;
+    coordinates: any[];
+    mapZoom: number;
+    @ViewChild(AgmMap) public agmMap: AgmMap;
 
     // inject ReviewRepository
     constructor(public repository: ReviewRepository) { }
@@ -22,11 +30,19 @@ export class UserReviewComponent implements OnInit {
     // load Reviews into array on init
     ngOnInit() {
         this.testReviews = this.getReviews();
-        // if array is not undefined
-        if (typeof this.testReviews !== 'undefined') {
+        // if array is undefined
+        if (typeof this.testReviews === 'undefined') {
+            console.log("The array is undefined!!!");
+        }
+        // else load userReviews with matching Reviews from testReviews
+        else {
+            console.log("Something there!");
             // filter Review objects based on returned value from checkUser()
             this.userReviews = this.testReviews.filter(
                 review => this.checkUser(this.userId, review));
+                this.mapLocation();
+                this.agmMap.triggerResize();
+
         }
     }
 
@@ -40,7 +56,7 @@ export class UserReviewComponent implements OnInit {
     }
 
     /*
-    * checkUser() tests to see if the
+    * checUser() tests to see if the
     * userId in a Review object matches
     * the current user of the session
     */
@@ -52,6 +68,19 @@ export class UserReviewComponent implements OnInit {
         else {
             return false;
         }
+    }
+
+    mapLocation() {
+        var reviews = this.userReviews;
+        this.coordinates = [];
+        this.mapZoom = 15;
+         
+        for (var i = 0; i < reviews.length; i++) {
+            var estName = reviews[i].establishment.substring(0, reviews[i].establishment.indexOf(','));
+              console.log(estName);
+            this.coordinates.push({ lat: reviews[i].geoLocation.lat, lng: reviews[i].geoLocation.lng, location: estName });
+        }
+
     }
 
 } // END COMPONENT
